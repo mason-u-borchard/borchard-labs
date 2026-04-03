@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Borchard Labs - Research Simulations for STEM Undergrads</title>
+    <meta name="description" content="Hands-on scientific research experience through browser-based ecological simulations. Collect real data, analyze results, and publish findings.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/main.css">
+</head>
+<body>
+
+    <nav class="site-nav" id="siteNav">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">
+                <span class="logo-mark">BL</span>
+                <span class="logo-text">Borchard Labs</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="/experiments/">Experiments</a></li>
+                <li><a href="/publications/">Publications</a></li>
+                <li><a href="/resources/">Resources</a></li>
+                <li><a href="/about/">About</a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+    <div class="mobile-nav" id="mobileNav">
+        <a href="/experiments/">Experiments</a>
+        <a href="/publications/">Publications</a>
+        <a href="/resources/">Resources</a>
+        <a href="/about/">About</a>
+    </div>
+
+    <main>
+        <!-- Hero -->
+        <section class="hero">
+            <div class="container">
+                <h1>Research Experience for<br>Every STEM Student</h1>
+                <p class="lead">
+                    Borchard Labs brings hands-on scientific research to undergraduates who
+                    lack access to traditional lab opportunities. Run ecological simulations,
+                    collect real data, and publish your findings &mdash; all from your browser.
+                </p>
+                <div class="hero-buttons">
+                    <a href="/experiments/" class="btn btn-primary btn-lg">Browse Experiments</a>
+                    <a href="/about/" class="btn btn-secondary btn-lg">Learn More</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works -->
+        <section class="section section-alt">
+            <div class="container">
+                <div class="section-header">
+                    <h2>How It Works</h2>
+                    <p>Three steps from curiosity to publishable research</p>
+                </div>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <h3>Choose an Experiment</h3>
+                        <p>Pick from 16 research simulations spanning behavioral ecology, population dynamics, genetics, marine biology, and more.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <h3>Run the Simulation</h3>
+                        <p>Observe animal behavior, manipulate variables, and collect data in immersive browser-based field environments powered by HTML5 Canvas.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <h3>Analyze &amp; Publish</h3>
+                        <p>Export your data, run statistical analyses, write up your results, and submit to the Borchard Labs undergraduate research archive.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experiment Preview -->
+        <section class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Experiment Catalog</h2>
+                    <p>Ecological and evolutionary research across five scientific disciplines</p>
+                </div>
+                <div class="grid-4">
+                    <div class="card">
+                        <div class="card-thumb">
+                            <span class="placeholder-icon">🏖️</span>
+                        </div>
+                        <div class="card-body">
+                            <h3><a href="/experiments/elephant-seal-harem/">Elephant Seal Harem Mating</a></h3>
+                            <p>Observe alpha male dominance displays, copulation events, and harem defense strategies on a simulated beach.</p>
+                        </div>
+                        <div class="card-footer">
+                            <span class="tag tag-green">Behavioral Ecology</span>
+                            <span class="difficulty">
+                                <span class="difficulty-dot filled"></span>
+                                <span class="difficulty-dot filled"></span>
+                                <span class="difficulty-dot"></span>
+                                Intermediate
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-thumb">
+                            <span class="placeholder-icon">🦆</span>
+                        </div>
+                        <div class="card-body">
+                            <h3><a href="/experiments/ideal-free-distribution/">Ideal Free Distribution</a></h3>
+                            <p>Test resource-matching predictions with coots, ducks, sticklebacks, starlings, or bumblebees across variable patch qualities.</p>
+                        </div>
+                        <div class="card-footer">
+                            <span class="tag tag-green">Behavioral Ecology</span>
+                            <span class="difficulty">
+                                <span class="difficulty-dot filled"></span>
+                                <span class="difficulty-dot"></span>
+                                <span class="difficulty-dot"></span>
+                                Beginner
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-thumb">
+                            <span class="placeholder-icon">🧬</span>
+                        </div>
+                        <div class="card-body">
+                            <h3><a href="/experiments/hardy-weinberg/">Hardy-Weinberg Equilibrium</a></h3>
+                            <p>Toggle evolutionary forces&mdash;mutation, selection, drift, migration, mating&mdash;and watch allele frequencies shift in real time.</p>
+                        </div>
+                        <div class="card-footer">
+                            <span class="tag tag-gold">Genetics &amp; Evolution</span>
+                            <span class="difficulty">
+                                <span class="difficulty-dot filled"></span>
+                                <span class="difficulty-dot"></span>
+                                <span class="difficulty-dot"></span>
+                                Beginner
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-thumb">
+                            <span class="placeholder-icon">🐋</span>
+                        </div>
+                        <div class="card-body">
+                            <h3><a href="/experiments/whale-migration/">Whale Migration Tracking</a></h3>
+                            <p>Follow whale pods across ocean basins on an interactive map, correlating migration routes with sea temperature and food availability.</p>
+                        </div>
+                        <div class="card-footer">
+                            <span class="tag tag-blue">Marine Biology</span>
+                            <span class="difficulty">
+                                <span class="difficulty-dot filled"></span>
+                                <span class="difficulty-dot filled"></span>
+                                <span class="difficulty-dot"></span>
+                                Intermediate
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-lg">
+                    <a href="/experiments/" class="btn btn-ghost">View All 16 Experiments</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Who It's For -->
+        <section class="section section-alt">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Who It's For</h2>
+                    <p>Research experience shouldn't depend on geography, wealth, or connections</p>
+                </div>
+                <div class="audience-grid">
+                    <div class="audience-item">
+                        <div class="audience-icon">&#x1F393;</div>
+                        <div>
+                            <h4>Undergrads Without Lab Access</h4>
+                            <p>Students at universities with limited research infrastructure who want real experience before applying to graduate programs.</p>
+                        </div>
+                    </div>
+                    <div class="audience-item">
+                        <div class="audience-icon">&#x1F4BC;</div>
+                        <div>
+                            <h4>Working Students</h4>
+                            <p>Students who support themselves or their families and can't commit to unpaid research positions or off-campus internships.</p>
+                        </div>
+                    </div>
+                    <div class="audience-item">
+                        <div class="audience-icon">&#x1F30D;</div>
+                        <div>
+                            <h4>Remote &amp; Commuter Students</h4>
+                            <p>Students with long commutes or online coursework who can't spend extra hours on campus for traditional lab work.</p>
+                        </div>
+                    </div>
+                    <div class="audience-item">
+                        <div class="audience-icon">&#x1F52C;</div>
+                        <div>
+                            <h4>Interdisciplinary Explorers</h4>
+                            <p>STEM majors curious about fields outside their specialty&mdash;a chemistry major who wants to try ecology, or a pre-med student interested in evolutionary biology.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Ready to Start?</h2>
+                    <p>
+                        Borchard Labs is in active development. Explore the experiment catalog to see
+                        what's coming, or read about the project's mission and goals.
+                    </p>
+                </div>
+                <div class="hero-buttons">
+                    <a href="/experiments/" class="btn btn-primary btn-lg">Explore Experiments</a>
+                    <a href="/about/" class="btn btn-secondary btn-lg">About the Project</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo-mark">BL</span>
+                    <p>Bringing simulated hands-on research experiences to every STEM student, regardless of circumstance.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-col">
+                        <h4>Platform</h4>
+                        <a href="/experiments/">Experiments</a>
+                        <a href="/publications/">Publications</a>
+                        <a href="/resources/">Resources</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Project</h4>
+                        <a href="/about/">About</a>
+                        <a href="/about/#contact">Contact</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Borchard Labs &middot; A dissertation project by Mason Borchard</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/assets/js/nav.js"></script>
+</body>
+</html>

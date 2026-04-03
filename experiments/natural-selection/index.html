@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Natural Selection on Quantitative Traits | Borchard Labs</title>
+    <meta name="description" content="Observe natural selection acting on quantitative traits in real time. Measure selection differentials, apply the breeder's equation, and track evolutionary response.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/main.css">
+</head>
+<body>
+
+    <nav class="site-nav" id="siteNav">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">
+                <span class="logo-mark">BL</span>
+                <span class="logo-text">Borchard Labs</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="/experiments/" class="active">Experiments</a></li>
+                <li><a href="/publications/">Publications</a></li>
+                <li><a href="/resources/">Resources</a></li>
+                <li><a href="/about/">About</a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+    <div class="mobile-nav" id="mobileNav">
+        <a href="/experiments/" class="active">Experiments</a>
+        <a href="/publications/">Publications</a>
+        <a href="/resources/">Resources</a>
+        <a href="/about/">About</a>
+    </div>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <nav class="breadcrumb">
+                    <a href="/">Home</a> &rsaquo; <a href="/experiments/">Experiments</a> &rsaquo; Natural Selection on Quantitative Traits
+                </nav>
+                <h1>Natural Selection on Quantitative Traits</h1>
+                <div class="tags">
+                    <span class="tag tag-gold">Genetics &amp; Evolution</span>
+                    <span class="difficulty">
+                        <span class="difficulty-dot filled"></span>
+                        <span class="difficulty-dot filled"></span>
+                        <span class="difficulty-dot"></span>
+                        Intermediate
+                    </span>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="experiment-content">
+                    <div class="experiment-body">
+
+                        <h2>Overview</h2>
+                        <p>
+                            Natural selection acts on the phenotypic variation within a population. When
+                            environmental conditions favor certain trait values over others, the trait
+                            distribution shifts across generations. It's one thing to read about this
+                            in a textbook; it's another thing entirely to watch it happen.
+                        </p>
+                        <p>
+                            Darwin's finches are the classic case. Peter and Rosemary Grant documented
+                            natural selection in real time on Daphne Major in the Gal&aacute;pagos: during
+                            the 1977 drought, large-beaked birds that could crack the remaining tough
+                            seeds survived at higher rates, and average beak depth measurably increased
+                            in the next generation. Similar stories play out with peppered moths during
+                            industrial pollution, guppies under predation pressure, and countless other
+                            systems.
+                        </p>
+
+                        <h2>What You'll Do</h2>
+                        <p>
+                            Start with a population showing natural variation in a quantitative trait
+                            (beak depth, body coloration, running speed&mdash;depending on the system you
+                            choose). Introduce a selection event: a drought, a new predator, or an
+                            environmental shift. Measure the trait distribution before and after selection
+                            acts on the population.
+                        </p>
+                        <p>
+                            Calculate the selection differential (the difference between the mean of
+                            survivors and the mean of the original population) and apply the breeder's
+                            equation, R = h&sup2;S, to predict the evolutionary response. Then run the
+                            simulation forward and see how well your prediction matches the actual change
+                            in the next generation. Repeat across multiple generations and compare
+                            directional, stabilizing, and disruptive selection regimes.
+                        </p>
+
+                        <h2>Learning Objectives</h2>
+                        <ol>
+                            <li>Measure and graph phenotypic trait distributions in a population</li>
+                            <li>Calculate the selection differential and apply the breeder's equation (R = h&sup2;S)</li>
+                            <li>Distinguish between directional, stabilizing, and disruptive selection based on trait distribution changes</li>
+                            <li>Predict evolutionary response to selection given heritability estimates</li>
+                        </ol>
+
+                        <h2>Background</h2>
+                        <p>
+                            Quantitative genetics provides the mathematical framework linking selection
+                            to evolutionary response. The breeder's equation, R = h&sup2;S, was developed
+                            in the context of agricultural breeding programs but applies equally well to
+                            natural populations. R is the response to selection (how much the trait mean
+                            shifts between generations), h&sup2; is narrow-sense heritability (the proportion
+                            of phenotypic variance attributable to additive genetic effects), and S is the
+                            selection differential.
+                        </p>
+                        <p>
+                            The Grants' work on <em>Geospiza fortis</em> (the medium ground finch) on
+                            Daphne Major remains the most famous empirical demonstration. Beak depth is
+                            highly heritable (h&sup2; &asymp; 0.65), and the 1977 drought imposed strong
+                            directional selection favoring larger beaks. The predicted and observed responses
+                            matched closely, providing textbook-quality evidence that natural selection
+                            can produce measurable evolutionary change within a single generation.
+                        </p>
+                        <p>
+                            The simulation also includes peppered moths (<em>Biston betularia</em>), where
+                            industrial pollution shifted selection on wing coloration, and Trinidadian
+                            guppies (<em>Poecilia reticulata</em>), where the presence or absence of
+                            predatory fish drives rapid evolution of male coloration and life history traits.
+                        </p>
+
+                    </div>
+
+                    <aside class="experiment-sidebar">
+                        <div class="sidebar-card">
+                            <a class="btn btn-primary btn-disabled" style="width:100%; text-align:center;">Launch Simulation</a>
+                            <p class="text-small text-muted" style="margin-top: 0.75rem; text-align: center;">Coming Soon</p>
+                        </div>
+
+                        <div class="sidebar-card">
+                            <h4>Skills You'll Gain</h4>
+                            <ul>
+                                <li>Trait distribution measurement</li>
+                                <li>Selection differential calculation</li>
+                                <li>Heritability estimation</li>
+                                <li>Regression analysis</li>
+                                <li>Evolutionary prediction</li>
+                            </ul>
+                        </div>
+
+                        <div class="sidebar-card">
+                            <h4>Quick Facts</h4>
+                            <ul>
+                                <li><strong>Difficulty:</strong> Intermediate</li>
+                                <li><strong>Duration:</strong> 45&ndash;60 min</li>
+                                <li><strong>Discipline:</strong> Genetics &amp; Evolution</li>
+                            </ul>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo-mark">BL</span>
+                    <p>Bringing simulated hands-on research experiences to every STEM student, regardless of circumstance.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-col">
+                        <h4>Platform</h4>
+                        <a href="/experiments/">Experiments</a>
+                        <a href="/publications/">Publications</a>
+                        <a href="/resources/">Resources</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Project</h4>
+                        <a href="/about/">About</a>
+                        <a href="/about/#contact">Contact</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Borchard Labs &middot; A dissertation project by Mason Borchard</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/assets/js/nav.js"></script>
+</body>
+</html>

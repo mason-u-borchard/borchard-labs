@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Optimal Foraging | Borchard Labs</title>
+    <meta name="description" content="Test the Marginal Value Theorem with chickadees, squirrels, or shore crabs. Measure giving-up times in depleting resource patches.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/main.css">
+</head>
+<body>
+
+    <nav class="site-nav" id="siteNav">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">
+                <span class="logo-mark">BL</span>
+                <span class="logo-text">Borchard Labs</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="/experiments/" class="active">Experiments</a></li>
+                <li><a href="/publications/">Publications</a></li>
+                <li><a href="/resources/">Resources</a></li>
+                <li><a href="/about/">About</a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+    <div class="mobile-nav" id="mobileNav">
+        <a href="/experiments/" class="active">Experiments</a>
+        <a href="/publications/">Publications</a>
+        <a href="/resources/">Resources</a>
+        <a href="/about/">About</a>
+    </div>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <nav class="breadcrumb">
+                    <a href="/">Home</a> &rsaquo; <a href="/experiments/">Experiments</a> &rsaquo; Optimal Foraging
+                </nav>
+                <h1>Optimal Foraging</h1>
+                <div class="tags">
+                    <span class="tag tag-green">Behavioral Ecology</span>
+                    <span class="difficulty">
+                        <span class="difficulty-dot filled"></span>
+                        <span class="difficulty-dot filled"></span>
+                        <span class="difficulty-dot"></span>
+                        Intermediate
+                    </span>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="experiment-content">
+                    <div class="experiment-body">
+
+                        <h2>Overview</h2>
+                        <p>
+                            The Marginal Value Theorem (Charnov, 1976) makes a clean prediction: an animal
+                            should leave a depleting food patch when its instantaneous rate of energy gain drops
+                            to the average rate for the entire habitat. Stay too long in a crummy patch and
+                            you're wasting time. Leave a rich patch too early and you're leaving food on the
+                            table. Animals that get this tradeoff right maximize their energy intake per unit
+                            time&mdash;a key prediction of evolutionary ecology.
+                        </p>
+                        <p>
+                            Of course, animals don't carry calculators. The question is whether natural selection
+                            has shaped foraging behavior closely enough to approximate the optimal solution, or
+                            whether real animals use simpler rules of thumb that sometimes fall short.
+                        </p>
+
+                        <h2>What You'll Do</h2>
+                        <p>
+                            Observe foragers visiting depleting resource patches. Record how long each individual
+                            stays before moving to a new patch&mdash;this is the giving-up time, and it's the
+                            central variable in any test of the Marginal Value Theorem. Measure intake rate
+                            curves as patches deplete (energy gained per unit time, plotted against time spent
+                            in the patch).
+                        </p>
+                        <p>
+                            Test whether observed giving-up times match the predictions. Then manipulate the
+                            environment: increase travel time between patches (the theorem predicts animals should
+                            stay longer in each patch) or change patch quality (richer patches should be exploited
+                            longer). See if the animals adjust as predicted.
+                        </p>
+
+                        <h2>Learning Objectives</h2>
+                        <ol>
+                            <li>Apply the Marginal Value Theorem to predict when a forager should leave a depleting patch</li>
+                            <li>Measure and graph diminishing returns within a resource patch</li>
+                            <li>Test whether travel time between patches affects giving-up time as predicted by optimal foraging theory</li>
+                            <li>Evaluate how well optimal foraging models predict real foraging behavior across different species</li>
+                        </ol>
+
+                        <h2>Animal Systems</h2>
+                        <ul>
+                            <li><strong>Black-capped Chickadees</strong> &mdash; Visiting winter feeders that deplete over time; small body size means high metabolic demands and strong selection for efficient foraging</li>
+                            <li><strong>Eastern Gray Squirrels</strong> &mdash; Exploiting depleting nut caches; includes scatter-hoarding decisions about when to eat vs. store</li>
+                            <li><strong>Shore Crabs</strong> &mdash; Selecting mussels of varying sizes; a classic optimal diet study combined with patch residence</li>
+                        </ul>
+
+                        <h2>Background</h2>
+                        <p>
+                            Optimal foraging theory emerged in the 1960s from the idea that natural selection
+                            should favor efficient resource acquisition. If an animal that forages more
+                            efficiently has higher survival and reproductive success, then over evolutionary
+                            time, foraging behavior should converge on something close to the optimal strategy.
+                        </p>
+                        <p>
+                            Charnov's Marginal Value Theorem handles the specific case of patchy, depleting
+                            resources. The graphical model is elegant: you plot the cumulative gain curve for a
+                            patch (which rises steeply at first, then flattens as the patch depletes). The
+                            optimal departure time is found by drawing a tangent line from the point representing
+                            travel time to the gain curve. Where the tangent touches the curve, that's when
+                            the forager should leave.
+                        </p>
+                        <p>
+                            Empirical tests have been surprisingly supportive. Many species adjust their patch
+                            residence times in the direction predicted by the theorem, even if they don't hit
+                            the exact optimum. Whether animals use intake rate thresholds, giving-up rules,
+                            or Bayesian updating to approximate the optimal strategy is still an active area
+                            of research.
+                        </p>
+
+                    </div>
+
+                    <aside class="experiment-sidebar">
+                        <div class="sidebar-card">
+                            <a class="btn btn-primary btn-disabled" style="width:100%; text-align:center;">Launch Simulation</a>
+                            <p class="text-small text-muted" style="margin-top: 0.75rem; text-align: center;">Coming Soon</p>
+                        </div>
+
+                        <div class="sidebar-card">
+                            <h4>Skills You'll Gain</h4>
+                            <ul>
+                                <li>Giving-up time measurement</li>
+                                <li>Intake rate calculation</li>
+                                <li>Graphing diminishing returns curves</li>
+                                <li>Hypothesis testing</li>
+                                <li>Experimental design</li>
+                            </ul>
+                        </div>
+
+                        <div class="sidebar-card">
+                            <h4>Quick Facts</h4>
+                            <ul>
+                                <li><strong>Difficulty:</strong> Intermediate</li>
+                                <li><strong>Duration:</strong> 45&ndash;60 min</li>
+                                <li><strong>Discipline:</strong> Behavioral Ecology</li>
+                            </ul>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo-mark">BL</span>
+                    <p>Bringing simulated hands-on research experiences to every STEM student, regardless of circumstance.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-col">
+                        <h4>Platform</h4>
+                        <a href="/experiments/">Experiments</a>
+                        <a href="/publications/">Publications</a>
+                        <a href="/resources/">Resources</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Project</h4>
+                        <a href="/about/">About</a>
+                        <a href="/about/#contact">Contact</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Borchard Labs &middot; A dissertation project by Mason Borchard</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/assets/js/nav.js"></script>
+</body>
+</html>

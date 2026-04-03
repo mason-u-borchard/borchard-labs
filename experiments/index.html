@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experiment Catalog - Borchard Labs</title>
+    <meta name="description" content="Browse 16 research simulations spanning behavioral ecology, population dynamics, genetics, marine biology, and environmental science.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/main.css">
+</head>
+<body>
+
+    <nav class="site-nav" id="siteNav">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">
+                <span class="logo-mark">BL</span>
+                <span class="logo-text">Borchard Labs</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="/experiments/" class="active">Experiments</a></li>
+                <li><a href="/publications/">Publications</a></li>
+                <li><a href="/resources/">Resources</a></li>
+                <li><a href="/about/">About</a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+    <div class="mobile-nav" id="mobileNav">
+        <a href="/experiments/" class="active">Experiments</a>
+        <a href="/publications/">Publications</a>
+        <a href="/resources/">Resources</a>
+        <a href="/about/">About</a>
+    </div>
+
+    <main>
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <h1>Experiment Catalog</h1>
+                <p class="text-muted" style="font-size: 1.15rem; max-width: 640px; margin-top: var(--space-sm);">
+                    Browse research simulations across five scientific disciplines. Each experiment
+                    lets you collect real data, run analyses, and build research skills from your browser.
+                </p>
+            </div>
+        </section>
+
+        <!-- Catalog -->
+        <section class="section">
+            <div class="container">
+
+                <!-- Filters -->
+                <div class="filter-bar">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="behavioral-ecology">Behavioral Ecology</button>
+                    <button class="filter-btn" data-filter="population-community">Population &amp; Community</button>
+                    <button class="filter-btn" data-filter="physiology-environment">Physiology &amp; Environment</button>
+                    <button class="filter-btn" data-filter="genetics-evolution">Genetics &amp; Evolution</button>
+                    <button class="filter-btn" data-filter="marine-biology">Marine Biology</button>
+                </div>
+
+                <!-- Experiment Grid -->
+                <div class="grid-4">
+
+                    <!-- ======== Behavioral Ecology ======== -->
+
+                    <div class="card" data-discipline="behavioral-ecology">
+                        <div class="card-thumb">
+                            <span class="placeholder-icon">&#x1F3D6;&#xFE0F;</span>
+                        </div>
+                        <div class="card-body">
+                            <h3><a href="/experiments/elephant-seal-harem/">Elephant Seal Harem Mating</a></h3>
+                            <p>Observe alpha male dominance, copulation frequency, and harem defense on a simulated beach.</p>
+                        </div>
+                        <div class="card-footer">
+                            <span class="tag tag-green">Behavioral Ecology</span>
+                            <span class="difficulty">
+                                <span class="difficulty-dot filled"></span>
+                                <span class="difficulty-dot filled"></span>
+                                <span class="difficulty-dot"></span>
+                                Intermediate
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="card" data-discipline="behavioral-ecology">
+                        <div class="card-thumb">
+                            <span class="placeholder-icon">&#x1F50A;</span>
+                        </div>
+                        <div class="card-body">
+                            <h3><a href="/experiments/walrus-acoustics/">Walrus Acoustics</a></h3>
+                            <p>Categorize walrus vocalizations using spectrograms and correlate acoustic patterns with behavioral states at an arctic haul-out.</p>
+                        </div>
+                        <div class="card-footer">
+                            <span class="tag tag-green">Behavioral Ecology</span>
+                            <span class="difficulty">
+                                <span class="difficulty-dot filled"></span>
+                                <span class="difficulty-dot filled"></span>
+                                <span class="difficulty-dot filled"></span>
+                                Advanced
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="card" data-discipline="behavioral-ecology">
+                        <div class="card-thumb">
+                            <span class="placeholder-icon">&#x1F986;</span>
+                        </div>
+                        <div class="card-body">
+                            <h3><a href="/experiments/ideal-free-distribution/">Ideal Free Distribution</a></h3>
+                            <p>Test resource-matching predictions with coots, mallards, sticklebacks, starlings, or bumblebees across variable-quality patches.</p>
+                        </div>
+                        <div class="card-footer">
+                            <span class="tag tag-green">Behavioral Ecology</span>
+                            <span class="difficulty">
+                                <span class="difficulty-dot filled"></span>
+                                <span class="difficulty-dot"></span>
+                                <span class="difficulty-dot"></span>
+                                Beginner
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="card" data-discipline="behavioral-ecology">
+                        <div class="card-thumb">
+                            <span class="placeholder-icon">&#x1F98E;</span>
+                        </div>
+                        <div class="card-body">
+                            <h3><a href="/experiments/batesian-mimicry/">Batesian Mimicry</a></h3>
+                            <p>Manipulate mimic-to-model ratios and observe predator learning across five different mimicry systems.</p>
+                        </div>
+                        <div class="card-footer">
+                            <span class="tag tag-green">Behavioral Ecology</span>
+                            <span class="difficulty">
+                                <span class="difficulty-dot filled"></span>
+                                <span class="difficulty-dot filled"></span>
+                                <span class="difficulty-dot"></span>
+                                Intermediate
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="card" data-discipline="behavioral-ecology">
+                        <div class="card-thumb">
+                            <span class="placeholder-icon">&#x1F43F;&#xFE0F;</span>
+                        </div>
+                        <div class="card-body">
+                            <h3><a href="/experiments/optimal-foraging/">Optimal Foraging</a></h3>
+                            <p>Test the marginal value theorem with chickadees, squirrels, or shore crabs in depleting resource patches.</p>
+                        </div>
+                        <div class="card-footer">
+                            <span class="tag tag-green">Behavioral Ecology</span>
+                            <span class="difficulty">
+                                <span class="difficulty-dot filled"></span>
+                                <span class="difficulty-dot filled"></span>
+                                <span class="difficulty-dot"></span>
+                                Intermediate
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="card" data-discipline="behavioral-ecology">
+                        <div class="card-thumb">
+                            <span class="placeholder-icon">&#x1F426;</span>
+                        </div>
+                        <div class="card-body">
+                            <h3><a href="/experiments/territorial-behavior/">Territorial Behavior</a></h3>
+                            <p>Measure the Dear Enemy Effect in song sparrows, anole lizards, or cichlid fish defending territories.</p>
+                        </div>
+                        <div class="card-footer">
+                            <span class="tag tag-green">Behavioral Ecology</span>
+                            <span class="difficulty">
+                                <span class="difficulty-dot filled"></span>
+                                <span class="difficulty-dot filled"></span>
+                                <span class="difficulty-dot"></span>
+                                Intermediate
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- ======== Population & Community Ecology ======== -->
+
+                    <div class="card" data-discipline="population-community">
+                        <div class="card-thumb">
+                            <span class="placeholder-icon">&#x1F422;</span>
+                        </div>
+                        <div class="card-body">
+                            <h3><a href="/experiments/mark-recapture/">Mark-Recapture Population Estimation</a></h3>
+                            <p>Run capture-mark-recapture sessions with painted turtles, monarch butterflies, deer mice, or sculpins to estimate population size using Lincoln-Petersen.</p>
+                        </div>
+                        <div class="card-footer">
+                            <span class="tag tag-blue">Population &amp; Community</span>
+                            <span class="difficulty">
+                                <span class="difficulty-dot filled"></span>
+                                <span class="difficulty-dot"></span>
+                                <span class="difficulty-dot"></span>
+                                Beginner
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="card" data-discipline="population-community">
+                        <div class="card-thumb">
+                            <span class="placeholder-icon">&#x1FAB8;</span>
+                        </div>
+                        <div class="card-body">
+                            <h3><a href="/experiments/species-diversity/">Species Diversity &amp; Community Composition</a></h3>
+                            <p>Conduct quadrat and transect surveys in rocky intertidal, forest floor, or coral reef environments. Calculate diversity indices.</p>
+                        </div>
+                        <div class="card-footer">
+                            <span class="tag tag-blue">Population &amp; Community</span>
+                            <span class="difficulty">
+                                <span class="difficulty-dot filled"></span>
+                                <span class="difficulty-dot filled"></span>
+                                <span class="difficulty-dot"></span>
+                                Intermediate
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="card" data-discipline="population-community">
+                        <div class="card-thumb">
+                            <span class="placeholder-icon">&#x1F43A;</span>
+                        </div>
+                        <div class="card-body">
+                            <h3><a href="/experiments/predator-prey/">Predator-Prey Dynamics</a></h3>
+                            <p>Model Lotka-Volterra population cycling with snowshoe hare/lynx or wolves/elk systems.</p>
+                        </div>
+                        <div class="card-footer">
+                            <span class="tag tag-blue">Population &amp; Community</span>
+                            <span class="difficulty">
+                                <span class="difficulty-dot filled"></span>
+                                <span class="difficulty-dot"></span>
+                                <span class="difficulty-dot"></span>
+                                Beginner
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- ======== Physiology & Environmental Science ======== -->
+
+                    <div class="card" data-discipline="physiology-environment">
+                        <div class="card-thumb">
+                            <span class="placeholder-icon">&#x1F321;&#xFE0F;</span>
+                        </div>
+                        <div class="card-body">
+                            <h3><a href="/experiments/thermal-biology/">Thermal Biology / Critical Thermal Limits</a></h3>
+                            <p>Generate temperature-performance curves for anole lizards, intertidal snails, or freshwater fish.</p>
+                        </div>
+                        <div class="card-footer">
+                            <span class="tag tag-bark">Physiology &amp; Environment</span>
+                            <span class="difficulty">
+                                <span class="difficulty-dot filled"></span>
+                                <span class="difficulty-dot filled"></span>
+                                <span class="difficulty-dot"></span>
+                                Intermediate
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="card" data-discipline="physiology-environment">
+                        <div class="card-thumb">
+                            <span class="placeholder-icon">&#x1F3DE;&#xFE0F;</span>
+                        </div>
+                        <div class="card-body">
+                            <h3><a href="/experiments/water-quality/">Water Quality Bioassessment</a></h3>
+                            <p>Collect stream macroinvertebrates with kick-net sampling and identify organisms using dichotomous keys to assess water quality.</p>
+                        </div>
+                        <div class="card-footer">
+                            <span class="tag tag-bark">Physiology &amp; Environment</span>
+                            <span class="difficulty">
+                                <span class="difficulty-dot filled"></span>
+                                <span class="difficulty-dot"></span>
+                                <span class="difficulty-dot"></span>
+                                Beginner
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="card" data-discipline="physiology-environment">
+                        <div class="card-thumb">
+                            <span class="placeholder-icon">&#x1F331;</span>
+                        </div>
+                        <div class="card-body">
+                            <h3><a href="/experiments/plant-phenology/">Plant Phenology &amp; Climate Response</a></h3>
+                            <p>Track seasonal plant changes across multiple climate scenarios and analyze phenological shifts.</p>
+                        </div>
+                        <div class="card-footer">
+                            <span class="tag tag-bark">Physiology &amp; Environment</span>
+                            <span class="difficulty">
+                                <span class="difficulty-dot filled"></span>
+                                <span class="difficulty-dot"></span>
+                                <span class="difficulty-dot"></span>
+                                Beginner
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- ======== Genetics & Evolution ======== -->
+
+                    <div class="card" data-discipline="genetics-evolution">
+                        <div class="card-thumb">
+                            <span class="placeholder-icon">&#x1F9EC;</span>
+                        </div>
+                        <div class="card-body">
+                            <h3><a href="/experiments/hardy-weinberg/">Hardy-Weinberg Equilibrium</a></h3>
+                            <p>Toggle mutation, selection, drift, migration, and non-random mating to observe allele frequency changes across generations.</p>
+                        </div>
+                        <div class="card-footer">
+                            <span class="tag tag-gold">Genetics &amp; Evolution</span>
+                            <span class="difficulty">
+                                <span class="difficulty-dot filled"></span>
+                                <span class="difficulty-dot"></span>
+                                <span class="difficulty-dot"></span>
+                                Beginner
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="card" data-discipline="genetics-evolution">
+                        <div class="card-thumb">
+                            <span class="placeholder-icon">&#x1F426;</span>
+                        </div>
+                        <div class="card-body">
+                            <h3><a href="/experiments/natural-selection/">Natural Selection on Quantitative Traits</a></h3>
+                            <p>Study selection on beak depth in Darwin's finches, melanism in peppered moths, or coloration in guppies.</p>
+                        </div>
+                        <div class="card-footer">
+                            <span class="tag tag-gold">Genetics &amp; Evolution</span>
+                            <span class="difficulty">
+                                <span class="difficulty-dot filled"></span>
+                                <span class="difficulty-dot filled"></span>
+                                <span class="difficulty-dot"></span>
+                                Intermediate
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- ======== Marine Biology ======== -->
+
+                    <div class="card" data-discipline="marine-biology">
+                        <div class="card-thumb">
+                            <span class="placeholder-icon">&#x1F980;</span>
+                        </div>
+                        <div class="card-body">
+                            <h3><a href="/experiments/tide-pool/">Tide Pool Ecology</a></h3>
+                            <p>Survey rocky intertidal zonation patterns. Place quadrats across tidal zones and document species distribution.</p>
+                        </div>
+                        <div class="card-footer">
+                            <span class="tag tag-rust">Marine Biology</span>
+                            <span class="difficulty">
+                                <span class="difficulty-dot filled"></span>
+                                <span class="difficulty-dot"></span>
+                                <span class="difficulty-dot"></span>
+                                Beginner
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="card" data-discipline="marine-biology">
+                        <div class="card-thumb">
+                            <span class="placeholder-icon">&#x1F40B;</span>
+                        </div>
+                        <div class="card-body">
+                            <h3><a href="/experiments/whale-migration/">Whale Migration Tracking</a></h3>
+                            <p>Track whale pod movements on an interactive map with sea temperature and food availability overlays.</p>
+                        </div>
+                        <div class="card-footer">
+                            <span class="tag tag-rust">Marine Biology</span>
+                            <span class="difficulty">
+                                <span class="difficulty-dot filled"></span>
+                                <span class="difficulty-dot filled"></span>
+                                <span class="difficulty-dot"></span>
+                                Intermediate
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo-mark">BL</span>
+                    <p>Bringing simulated hands-on research experiences to every STEM student, regardless of circumstance.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-col">
+                        <h4>Platform</h4>
+                        <a href="/experiments/">Experiments</a>
+                        <a href="/publications/">Publications</a>
+                        <a href="/resources/">Resources</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Project</h4>
+                        <a href="/about/">About</a>
+                        <a href="/about/#contact">Contact</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Borchard Labs &middot; A dissertation project by Mason Borchard</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/assets/js/nav.js"></script>
+    <script>
+        (function () {
+            var buttons = document.querySelectorAll('.filter-btn');
+            var cards = document.querySelectorAll('.grid-4 .card');
+
+            buttons.forEach(function (btn) {
+                btn.addEventListener('click', function () {
+                    // Update active button
+                    buttons.forEach(function (b) { b.classList.remove('active'); });
+                    btn.classList.add('active');
+
+                    var filter = btn.getAttribute('data-filter');
+
+                    cards.forEach(function (card) {
+                        if (filter === 'all' || card.getAttribute('data-discipline') === filter) {
+                            card.style.display = '';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        })();
+    </script>
+</body>
+</html>

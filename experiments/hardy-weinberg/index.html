@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hardy-Weinberg Equilibrium | Borchard Labs</title>
+    <meta name="description" content="Explore population genetics by toggling evolutionary forces on and off. Watch how mutation, selection, drift, migration, and mating patterns change allele frequencies.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/main.css">
+</head>
+<body>
+
+    <nav class="site-nav" id="siteNav">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">
+                <span class="logo-mark">BL</span>
+                <span class="logo-text">Borchard Labs</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="/experiments/" class="active">Experiments</a></li>
+                <li><a href="/publications/">Publications</a></li>
+                <li><a href="/resources/">Resources</a></li>
+                <li><a href="/about/">About</a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+    <div class="mobile-nav" id="mobileNav">
+        <a href="/experiments/" class="active">Experiments</a>
+        <a href="/publications/">Publications</a>
+        <a href="/resources/">Resources</a>
+        <a href="/about/">About</a>
+    </div>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <nav class="breadcrumb">
+                    <a href="/">Home</a> &rsaquo; <a href="/experiments/">Experiments</a> &rsaquo; Hardy-Weinberg Equilibrium
+                </nav>
+                <h1>Hardy-Weinberg Equilibrium</h1>
+                <div class="tags">
+                    <span class="tag tag-gold">Genetics &amp; Evolution</span>
+                    <span class="difficulty">
+                        <span class="difficulty-dot filled"></span>
+                        <span class="difficulty-dot"></span>
+                        <span class="difficulty-dot"></span>
+                        Beginner
+                    </span>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="experiment-content">
+                    <div class="experiment-body">
+
+                        <h2>Overview</h2>
+                        <p>
+                            The Hardy-Weinberg principle gives us a null model for population genetics.
+                            Under five conditions&mdash;no mutation, no selection, infinite population size,
+                            random mating, and no migration&mdash;allele frequencies stay constant across
+                            generations. Genotype frequencies settle into the familiar p&sup2; + 2pq + q&sup2;
+                            = 1 distribution and stay there indefinitely.
+                        </p>
+                        <p>
+                            Of course, no real population meets all five conditions. That's exactly the
+                            point. Hardy-Weinberg equilibrium is useful precisely because it gives you a
+                            baseline to test against. By violating each assumption one at a time, you can
+                            see which evolutionary forces have the biggest effect&mdash;and that's what
+                            this simulation lets you do.
+                        </p>
+
+                        <h2>What You'll Do</h2>
+                        <p>
+                            Start with a population in Hardy-Weinberg equilibrium. Then toggle evolutionary
+                            forces on and off, one at a time or in combination. Introduce new alleles via
+                            mutation. Make one genotype more fit than the others and watch selection drive
+                            allele frequency change. Shrink the population to see genetic drift in action.
+                            Add immigrants with different allele frequencies. Switch on assortative mating.
+                        </p>
+                        <p>
+                            At each step, track allele and genotype frequencies across generations on
+                            real-time graphs. Run replicate simulations to see how stochastic processes
+                            like drift produce different outcomes each time, while deterministic forces
+                            like strong selection produce consistent results.
+                        </p>
+
+                        <h2>Learning Objectives</h2>
+                        <ol>
+                            <li>Calculate expected genotype frequencies from allele frequencies using the Hardy-Weinberg equation</li>
+                            <li>Determine which evolutionary force has the greatest impact on allele frequency change in a given scenario</li>
+                            <li>Distinguish between the effects of genetic drift in small versus large populations</li>
+                            <li>Predict the outcome when multiple evolutionary forces act simultaneously</li>
+                        </ol>
+
+                        <h2>Background</h2>
+                        <p>
+                            G. H. Hardy (a mathematician) and Wilhelm Weinberg (a physician) independently
+                            published the equilibrium principle in 1908. Hardy reportedly considered it
+                            trivial&mdash;he wrote about it in a brief letter to <em>Science</em>&mdash;but
+                            it became one of the foundational results in population genetics.
+                        </p>
+                        <p>
+                            The power of the principle lies in its role as a null hypothesis. If observed
+                            genotype frequencies don't match Hardy-Weinberg expectations, something
+                            interesting is going on. A chi-square goodness-of-fit test lets you quantify
+                            the departure. The challenge is figuring out <em>which</em> assumption is being
+                            violated, since multiple forces can produce similar deviations.
+                        </p>
+                        <p>
+                            In practice, genetic drift tends to dominate in small populations, while selection
+                            is the main driver of directional change in large ones. Migration homogenizes
+                            allele frequencies between populations. Mutation introduces new variation but
+                            acts slowly on its own. Non-random mating changes genotype frequencies without
+                            altering allele frequencies&mdash;a subtle distinction that trips up a lot of
+                            students.
+                        </p>
+
+                    </div>
+
+                    <aside class="experiment-sidebar">
+                        <div class="sidebar-card">
+                            <a href="#hw-simulation" class="btn btn-primary" style="width:100%; text-align:center;">Jump to Simulation</a>
+                        </div>
+
+                        <div class="sidebar-card">
+                            <h4>Skills You'll Gain</h4>
+                            <ul>
+                                <li>Allele frequency calculation</li>
+                                <li>Chi-square goodness-of-fit testing</li>
+                                <li>Population genetics simulation</li>
+                                <li>Graphing allele frequency change</li>
+                                <li>Evolutionary force comparison</li>
+                            </ul>
+                        </div>
+
+                        <div class="sidebar-card">
+                            <h4>Quick Facts</h4>
+                            <ul>
+                                <li><strong>Difficulty:</strong> Beginner</li>
+                                <li><strong>Duration:</strong> 30&ndash;45 min</li>
+                                <li><strong>Discipline:</strong> Genetics &amp; Evolution</li>
+                            </ul>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-alt" id="hw-simulation">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Run the Simulation</h2>
+                    <p>Configure parameters below and click Start to begin</p>
+                </div>
+                <div id="hw-simulation-container" class="sim-container"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo-mark">BL</span>
+                    <p>Bringing simulated hands-on research experiences to every STEM student, regardless of circumstance.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-col">
+                        <h4>Platform</h4>
+                        <a href="/experiments/">Experiments</a>
+                        <a href="/publications/">Publications</a>
+                        <a href="/resources/">Resources</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Project</h4>
+                        <a href="/about/">About</a>
+                        <a href="/about/#contact">Contact</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Borchard Labs &middot; A dissertation project by Mason Borchard</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/assets/js/nav.js"></script>
+    <script type="module">
+        import { HWConfigScreen } from '/sim/experiments/hardy-weinberg/HWConfigScreen.js';
+        import { HardyWeinbergSim } from '/sim/experiments/hardy-weinberg/HardyWeinbergSim.js';
+
+        var container = document.getElementById('hw-simulation-container');
+        var sim = null;
+        var configScreen = null;
+
+        function showConfigScreen() {
+            configScreen = new HWConfigScreen({ onStart: launch });
+            configScreen.mount(container);
+        }
+
+        function launch(config) {
+            configScreen.destroy();
+            configScreen = null;
+
+            sim = new HardyWeinbergSim(container, config);
+            sim.init();
+            sim.start();
+
+            sim.on('reset', function () {
+                sim.destroy();
+                sim = null;
+                container.innerHTML = '';
+                showConfigScreen();
+            });
+        }
+
+        showConfigScreen();
+    </script>
+</body>
+</html>

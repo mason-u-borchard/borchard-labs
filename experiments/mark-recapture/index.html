@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mark-Recapture Population Estimation | Borchard Labs</title>
+    <meta name="description" content="Estimate population size using mark-recapture methods. Capture, mark, and recapture painted turtles, butterflies, mice, or sculpins in simulated field environments.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/main.css">
+</head>
+<body>
+
+    <nav class="site-nav" id="siteNav">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">
+                <span class="logo-mark">BL</span>
+                <span class="logo-text">Borchard Labs</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="/experiments/" class="active">Experiments</a></li>
+                <li><a href="/publications/">Publications</a></li>
+                <li><a href="/resources/">Resources</a></li>
+                <li><a href="/about/">About</a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+    <div class="mobile-nav" id="mobileNav">
+        <a href="/experiments/" class="active">Experiments</a>
+        <a href="/publications/">Publications</a>
+        <a href="/resources/">Resources</a>
+        <a href="/about/">About</a>
+    </div>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <nav class="breadcrumb">
+                    <a href="/">Home</a> &rsaquo; <a href="/experiments/">Experiments</a> &rsaquo; Mark-Recapture Population Estimation
+                </nav>
+                <h1>Mark-Recapture Population Estimation</h1>
+                <div class="tags">
+                    <span class="tag tag-blue">Population &amp; Community Ecology</span>
+                    <span class="difficulty">
+                        <span class="difficulty-dot filled"></span>
+                        <span class="difficulty-dot"></span>
+                        <span class="difficulty-dot"></span>
+                        Beginner
+                    </span>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="experiment-content">
+                    <div class="experiment-body">
+
+                        <h2>Overview</h2>
+                        <p>
+                            How do you count animals you can't see all at once? That's one of the most basic
+                            problems in ecology, and the mark-recapture method is one of the field's most
+                            fundamental solutions. The logic is disarmingly simple: capture a sample of animals,
+                            mark them so you can identify them later, release them back into the population,
+                            wait for them to mix in, then capture again. The proportion of marked individuals
+                            in your second sample tells you something about the total population size.
+                        </p>
+                        <p>
+                            If you marked 20 turtles and your second catch of 30 includes 6 marked ones, then
+                            roughly 20% of the population is marked, which means the total is around 100. That's
+                            the Lincoln-Petersen estimator in a nutshell. The real skill lies in understanding
+                            when the assumptions hold and what happens when they don't.
+                        </p>
+
+                        <h2>What You'll Do</h2>
+                        <p>
+                            Run multiple capture sessions in a simulated field environment. In the first session,
+                            capture animals and apply marks&mdash;paint marks on turtle shells, wing tags on
+                            butterflies, ear clips on mice, or fin clips on sculpins. Release them and let the
+                            population mix. In subsequent sessions, capture again and record how many individuals
+                            are marked versus unmarked.
+                        </p>
+                        <p>
+                            Calculate population estimates using the Lincoln-Petersen method and Chapman's
+                            bias-corrected modification. Compute confidence intervals. Then critically evaluate
+                            whether the key assumptions are met: Are all individuals equally likely to be caught?
+                            Are marks being retained? Is the population closed (no births, deaths, immigration,
+                            or emigration between sessions)? Each animal system violates these assumptions in
+                            different ways, which is half the point.
+                        </p>
+
+                        <h2>Learning Objectives</h2>
+                        <ol>
+                            <li>Apply the Lincoln-Petersen method and Chapman's correction to estimate population size from capture data</li>
+                            <li>Evaluate whether mark-recapture assumptions are met (equal catchability, no mark loss, population closure) and identify likely violations</li>
+                            <li>Calculate confidence intervals for population estimates and understand what drives estimate precision</li>
+                            <li>Compare estimates across multiple sampling sessions and assess consistency</li>
+                        </ol>
+
+                        <h2>Animal Systems</h2>
+                        <ul>
+                            <li><strong>Painted Turtles</strong> &mdash; In a pond; turtles are long-lived and site-faithful, making them good candidates for closed-population methods</li>
+                            <li><strong>Monarch Butterflies</strong> &mdash; At a migration waystation; high turnover means the closed-population assumption is shaky, which makes the exercise more interesting</li>
+                            <li><strong>Deer Mice</strong> &mdash; In a meadow with Sherman live-traps; trap-happiness and trap-shyness create classic capture heterogeneity problems</li>
+                            <li><strong>Tide Pool Sculpins</strong> &mdash; In rocky intertidal pools; small isolated pools approximate closed populations, but fish can move between pools at high tide</li>
+                        </ul>
+
+                        <h2>Background</h2>
+                        <p>
+                            The basic mark-recapture idea dates back to at least the early 1900s, when C.G.J.
+                            Petersen used it to estimate fish populations in Danish waters. Lincoln independently
+                            applied the same logic to waterfowl banding data. The method has since been extended
+                            in dozens of directions&mdash;Jolly-Seber models handle open populations, Pollock's
+                            robust design combines open and closed models, and modern spatial capture-recapture
+                            methods estimate both abundance and density.
+                        </p>
+                        <p>
+                            But the core logic hasn't changed. You're using the ratio of marked to unmarked
+                            animals in a resample to infer population size. The method works because that ratio,
+                            in expectation, equals the ratio of your original marked sample to the total
+                            population. When the assumptions are met, it's remarkably powerful. When they're
+                            not, your estimates can be badly biased&mdash;and learning to diagnose those biases
+                            is one of the most important skills in wildlife ecology.
+                        </p>
+
+                    </div>
+
+                    <aside class="experiment-sidebar">
+                        <div class="sidebar-card">
+                            <a class="btn btn-primary btn-disabled" style="width:100%; text-align:center;">Launch Simulation</a>
+                            <p class="text-small text-muted" style="margin-top: 0.75rem; text-align: center;">Coming Soon</p>
+                        </div>
+
+                        <div class="sidebar-card">
+                            <h4>Skills You'll Gain</h4>
+                            <ul>
+                                <li>Population estimation</li>
+                                <li>Lincoln-Petersen calculation</li>
+                                <li>Confidence interval computation</li>
+                                <li>Assumption evaluation</li>
+                                <li>Sampling design</li>
+                            </ul>
+                        </div>
+
+                        <div class="sidebar-card">
+                            <h4>Quick Facts</h4>
+                            <ul>
+                                <li><strong>Difficulty:</strong> Beginner</li>
+                                <li><strong>Duration:</strong> 30&ndash;45 min</li>
+                                <li><strong>Discipline:</strong> Population &amp; Community Ecology</li>
+                            </ul>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo-mark">BL</span>
+                    <p>Bringing simulated hands-on research experiences to every STEM student, regardless of circumstance.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-col">
+                        <h4>Platform</h4>
+                        <a href="/experiments/">Experiments</a>
+                        <a href="/publications/">Publications</a>
+                        <a href="/resources/">Resources</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Project</h4>
+                        <a href="/about/">About</a>
+                        <a href="/about/#contact">Contact</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Borchard Labs &middot; A dissertation project by Mason Borchard</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/assets/js/nav.js"></script>
+</body>
+</html>

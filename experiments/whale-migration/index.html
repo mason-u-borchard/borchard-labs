@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whale Migration Tracking | Borchard Labs</title>
+    <meta name="description" content="Track satellite-tagged whale pods across ocean basins. Correlate migration routes with sea surface temperature, prey availability, and ocean currents.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/main.css">
+</head>
+<body>
+
+    <nav class="site-nav" id="siteNav">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">
+                <span class="logo-mark">BL</span>
+                <span class="logo-text">Borchard Labs</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="/experiments/" class="active">Experiments</a></li>
+                <li><a href="/publications/">Publications</a></li>
+                <li><a href="/resources/">Resources</a></li>
+                <li><a href="/about/">About</a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+    <div class="mobile-nav" id="mobileNav">
+        <a href="/experiments/" class="active">Experiments</a>
+        <a href="/publications/">Publications</a>
+        <a href="/resources/">Resources</a>
+        <a href="/about/">About</a>
+    </div>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <nav class="breadcrumb">
+                    <a href="/">Home</a> &rsaquo; <a href="/experiments/">Experiments</a> &rsaquo; Whale Migration Tracking
+                </nav>
+                <h1>Whale Migration Tracking</h1>
+                <div class="tags">
+                    <span class="tag tag-rust">Marine Biology</span>
+                    <span class="difficulty">
+                        <span class="difficulty-dot filled"></span>
+                        <span class="difficulty-dot filled"></span>
+                        <span class="difficulty-dot"></span>
+                        Intermediate
+                    </span>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="experiment-content">
+                    <div class="experiment-body">
+
+                        <h2>Overview</h2>
+                        <p>
+                            Great whales undertake some of the longest migrations of any animal on Earth.
+                            Gray whales (<em>Eschrichtius robustus</em>) travel over 10,000 miles annually
+                            between Arctic feeding grounds and tropical breeding lagoons along the Baja
+                            California coast. Humpbacks cross entire ocean basins. North Atlantic right
+                            whales move up and down the eastern seaboard, threading through some of the
+                            busiest shipping lanes on the planet.
+                        </p>
+                        <p>
+                            These routes aren't random. They correlate with ocean temperature, prey
+                            distribution, currents, and bathymetry. Understanding what drives migration
+                            decisions is critical for conservation&mdash;knowing where whales go and why
+                            helps identify the habitats that matter most and the threats they face along
+                            the way.
+                        </p>
+
+                        <h2>What You'll Do</h2>
+                        <p>
+                            Follow satellite-tagged whale pods on an interactive ocean map as they
+                            migrate between feeding and breeding areas. Toggle environmental data layers
+                            on and off: sea surface temperature, chlorophyll-<em>a</em> concentration
+                            (a proxy for primary productivity and prey abundance), ocean current vectors,
+                            and bathymetric contours.
+                        </p>
+                        <p>
+                            Record whale positions over time and build a movement dataset. Analyze what
+                            environmental factors best predict the migration route, stopover locations,
+                            and travel speed. Compare routes across different years and individual whales
+                            to see how much variation exists and what drives it.
+                        </p>
+
+                        <h2>Learning Objectives</h2>
+                        <ol>
+                            <li>Analyze animal movement data using map-based tracking tools</li>
+                            <li>Correlate migration routes with oceanographic variables (SST, chlorophyll, currents)</li>
+                            <li>Identify critical habitat areas&mdash;feeding grounds, breeding sites, and migration corridors</li>
+                            <li>Evaluate how inter-annual environmental variation affects migration timing and routing</li>
+                        </ol>
+
+                        <h2>Background</h2>
+                        <p>
+                            Whale migration research was revolutionized by satellite telemetry in the
+                            1990s. Before that, scientists relied on whaling records, photo-identification
+                            catalogs, and opportunistic sightings to piece together movement patterns.
+                            Satellite tags changed everything. For the first time, researchers could
+                            follow individual whales continuously for months, through storms and across
+                            open ocean where no observers could go.
+                        </p>
+                        <p>
+                            The emerging picture is more complex than the simple "north in summer, south
+                            in winter" narrative. Individual whales show considerable variation in their
+                            routes. Some follow the continental shelf closely; others cut across deep
+                            water. Stopover duration at feeding sites varies with local prey density.
+                            Migration timing shifts from year to year, apparently tracking oceanographic
+                            conditions like sea surface temperature and upwelling intensity.
+                        </p>
+                        <p>
+                            From a conservation standpoint, the data are invaluable. Identifying migration
+                            corridors helps managers route shipping traffic to reduce strike risk. Mapping
+                            critical feeding areas informs decisions about offshore energy development and
+                            fisheries management. This simulation puts that same kind of data in your
+                            hands and asks you to draw the same kinds of conclusions.
+                        </p>
+
+                    </div>
+
+                    <aside class="experiment-sidebar">
+                        <div class="sidebar-card">
+                            <a class="btn btn-primary btn-disabled" style="width:100%; text-align:center;">Launch Simulation</a>
+                            <p class="text-small text-muted" style="margin-top: 0.75rem; text-align: center;">Coming Soon</p>
+                        </div>
+
+                        <div class="sidebar-card">
+                            <h4>Skills You'll Gain</h4>
+                            <ul>
+                                <li>GIS and mapping skills</li>
+                                <li>Movement ecology analysis</li>
+                                <li>Environmental correlation</li>
+                                <li>Habitat identification</li>
+                                <li>Spatial data analysis</li>
+                            </ul>
+                        </div>
+
+                        <div class="sidebar-card">
+                            <h4>Quick Facts</h4>
+                            <ul>
+                                <li><strong>Difficulty:</strong> Intermediate</li>
+                                <li><strong>Duration:</strong> 45&ndash;60 min</li>
+                                <li><strong>Discipline:</strong> Marine Biology</li>
+                            </ul>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo-mark">BL</span>
+                    <p>Bringing simulated hands-on research experiences to every STEM student, regardless of circumstance.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-col">
+                        <h4>Platform</h4>
+                        <a href="/experiments/">Experiments</a>
+                        <a href="/publications/">Publications</a>
+                        <a href="/resources/">Resources</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Project</h4>
+                        <a href="/about/">About</a>
+                        <a href="/about/#contact">Contact</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Borchard Labs &middot; A dissertation project by Mason Borchard</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/assets/js/nav.js"></script>
+</body>
+</html>

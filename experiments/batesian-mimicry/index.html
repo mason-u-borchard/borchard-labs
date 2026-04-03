@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Batesian Mimicry | Borchard Labs</title>
+    <meta name="description" content="Explore frequency-dependent Batesian mimicry across five animal systems. Manipulate mimic-to-model ratios and observe predator learning curves.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/main.css">
+</head>
+<body>
+
+    <nav class="site-nav" id="siteNav">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">
+                <span class="logo-mark">BL</span>
+                <span class="logo-text">Borchard Labs</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="/experiments/" class="active">Experiments</a></li>
+                <li><a href="/publications/">Publications</a></li>
+                <li><a href="/resources/">Resources</a></li>
+                <li><a href="/about/">About</a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+    <div class="mobile-nav" id="mobileNav">
+        <a href="/experiments/" class="active">Experiments</a>
+        <a href="/publications/">Publications</a>
+        <a href="/resources/">Resources</a>
+        <a href="/about/">About</a>
+    </div>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <nav class="breadcrumb">
+                    <a href="/">Home</a> &rsaquo; <a href="/experiments/">Experiments</a> &rsaquo; Batesian Mimicry
+                </nav>
+                <h1>Batesian Mimicry</h1>
+                <div class="tags">
+                    <span class="tag tag-green">Behavioral Ecology</span>
+                    <span class="difficulty">
+                        <span class="difficulty-dot filled"></span>
+                        <span class="difficulty-dot filled"></span>
+                        <span class="difficulty-dot"></span>
+                        Intermediate
+                    </span>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="experiment-content">
+                    <div class="experiment-body">
+
+                        <h2>Overview</h2>
+                        <p>
+                            In Batesian mimicry, a harmless species (the mimic) evolves to resemble a harmful
+                            or unpalatable species (the model) in order to avoid predation. The strategy works
+                            because predators that have had a bad experience with the model learn to avoid
+                            anything that looks like it. But there's a catch: the effectiveness of mimicry
+                            depends on the relative frequency of mimics to models.
+                        </p>
+                        <p>
+                            If mimics become too common relative to models, predators encounter enough palatable
+                            prey in the mimetic pattern that they stop avoiding it. The protection breaks down.
+                            This frequency dependence is the key prediction of Batesian mimicry theory, and
+                            it's what you'll be testing here.
+                        </p>
+
+                        <h2>What You'll Do</h2>
+                        <p>
+                            Choose a mimic-model system from the options below. Set the initial ratio of mimics
+                            to models in the environment. Observe predator encounters as they happen: does the
+                            predator attack or avoid the prey item? Track how predator behavior changes over
+                            successive encounters&mdash;this gives you a learning curve. Then measure survival
+                            rates of mimics at different frequency ratios.
+                        </p>
+                        <p>
+                            You'll run multiple trials at different mimic-to-model ratios to identify the tipping
+                            point where mimicry stops working. At what frequency do predators start ignoring the
+                            warning signal? And does that threshold differ across the five animal systems?
+                        </p>
+
+                        <h2>Learning Objectives</h2>
+                        <ol>
+                            <li>Explain the frequency-dependent nature of Batesian mimicry and why mimic rarity is essential</li>
+                            <li>Quantify predator learning rates from sequential encounter data</li>
+                            <li>Determine the threshold mimic-to-model ratio at which mimicry protection breaks down</li>
+                            <li>Compare mimicry effectiveness across different animal systems with varying signal fidelity</li>
+                        </ol>
+
+                        <h2>Animal Systems</h2>
+                        <ul>
+                            <li><strong>Red Salamander / Eastern Newt</strong> &mdash; Forest floor; the red salamander mimics the toxic red-spotted newt</li>
+                            <li><strong>Viceroy / Monarch Butterfly</strong> &mdash; Open meadow; the classic textbook example (though the story is more complicated than most textbooks admit)</li>
+                            <li><strong>Scarlet Kingsnake / Eastern Coral Snake</strong> &mdash; Forest; "red touches yellow, kills a fellow" ring patterns</li>
+                            <li><strong>Hoverflies / Yellowjacket Wasps</strong> &mdash; Garden; hoverflies gain protection from their wasp-like coloration</li>
+                            <li><strong>Zone-tailed Hawk / Turkey Vulture</strong> &mdash; Sky; the hawk mimics the vulture's flight profile to approach prey undetected</li>
+                        </ul>
+
+                        <h2>Background</h2>
+                        <p>
+                            Henry Walter Bates described this form of mimicry in 1862 based on his observations
+                            of butterflies in the Amazon basin. He noticed that palatable species in certain
+                            butterfly families closely resembled unpalatable species from other families, and
+                            proposed that natural selection favored the resemblance because predators avoided
+                            both equally.
+                        </p>
+                        <p>
+                            The frequency-dependent aspect was formalized later. If models are common and mimics
+                            are rare, most predator encounters with the shared color pattern result in a negative
+                            experience (the model is distasteful), so avoidance is maintained. As mimics become
+                            more common, the average encounter becomes less aversive, and predators start
+                            sampling the pattern again. This creates negative frequency-dependent selection on
+                            the mimic phenotype&mdash;the rarer you are, the better off you are.
+                        </p>
+                        <p>
+                            Models can also evolve in response to mimics. If a model population experiences
+                            increased predation because mimics have diluted the effectiveness of the warning
+                            signal, selection may favor models that look less like the mimics&mdash;driving an
+                            evolutionary arms race. These dynamics make Batesian mimicry one of the richest
+                            topics in evolutionary ecology.
+                        </p>
+
+                    </div>
+
+                    <aside class="experiment-sidebar">
+                        <div class="sidebar-card">
+                            <a class="btn btn-primary btn-disabled" style="width:100%; text-align:center;">Launch Simulation</a>
+                            <p class="text-small text-muted" style="margin-top: 0.75rem; text-align: center;">Coming Soon</p>
+                        </div>
+
+                        <div class="sidebar-card">
+                            <h4>Skills You'll Gain</h4>
+                            <ul>
+                                <li>Frequency analysis</li>
+                                <li>Survival rate calculation</li>
+                                <li>Learning curve modeling</li>
+                                <li>Chi-square testing</li>
+                                <li>Experimental variable manipulation</li>
+                            </ul>
+                        </div>
+
+                        <div class="sidebar-card">
+                            <h4>Quick Facts</h4>
+                            <ul>
+                                <li><strong>Difficulty:</strong> Intermediate</li>
+                                <li><strong>Duration:</strong> 45&ndash;60 min</li>
+                                <li><strong>Discipline:</strong> Behavioral Ecology</li>
+                            </ul>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo-mark">BL</span>
+                    <p>Bringing simulated hands-on research experiences to every STEM student, regardless of circumstance.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-col">
+                        <h4>Platform</h4>
+                        <a href="/experiments/">Experiments</a>
+                        <a href="/publications/">Publications</a>
+                        <a href="/resources/">Resources</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Project</h4>
+                        <a href="/about/">About</a>
+                        <a href="/about/#contact">Contact</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Borchard Labs &middot; A dissertation project by Mason Borchard</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/assets/js/nav.js"></script>
+</body>
+</html>

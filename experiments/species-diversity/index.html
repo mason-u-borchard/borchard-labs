@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Species Diversity &amp; Community Composition | Borchard Labs</title>
+    <meta name="description" content="Conduct quadrat and transect surveys in rocky intertidal, forest floor, or coral reef environments. Calculate Shannon-Wiener and Simpson's diversity indices.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/main.css">
+</head>
+<body>
+
+    <nav class="site-nav" id="siteNav">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">
+                <span class="logo-mark">BL</span>
+                <span class="logo-text">Borchard Labs</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="/experiments/" class="active">Experiments</a></li>
+                <li><a href="/publications/">Publications</a></li>
+                <li><a href="/resources/">Resources</a></li>
+                <li><a href="/about/">About</a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+    <div class="mobile-nav" id="mobileNav">
+        <a href="/experiments/" class="active">Experiments</a>
+        <a href="/publications/">Publications</a>
+        <a href="/resources/">Resources</a>
+        <a href="/about/">About</a>
+    </div>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <nav class="breadcrumb">
+                    <a href="/">Home</a> &rsaquo; <a href="/experiments/">Experiments</a> &rsaquo; Species Diversity &amp; Community Composition
+                </nav>
+                <h1>Species Diversity &amp; Community Composition</h1>
+                <div class="tags">
+                    <span class="tag tag-blue">Population &amp; Community Ecology</span>
+                    <span class="difficulty">
+                        <span class="difficulty-dot filled"></span>
+                        <span class="difficulty-dot filled"></span>
+                        <span class="difficulty-dot"></span>
+                        Intermediate
+                    </span>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="experiment-content">
+                    <div class="experiment-body">
+
+                        <h2>Overview</h2>
+                        <p>
+                            Understanding what species live where and in what abundance is the foundation of
+                            community ecology. It sounds straightforward, but anyone who's tried to do it in
+                            the field knows it's harder than it looks. You need a systematic sampling design,
+                            reliable species identification, and a way to turn raw counts into meaningful
+                            numbers. Diversity indices like Shannon-Wiener (H') and Simpson's (D) compress
+                            community data into single values that let you compare across sites, zones, or
+                            experimental conditions.
+                        </p>
+                        <p>
+                            This simulation puts you in the field with a quadrat frame and a transect tape.
+                            You'll collect the kind of data that community ecologists have been gathering for
+                            over a century&mdash;species identities and abundances within standardized sampling
+                            units&mdash;and learn to analyze it properly.
+                        </p>
+
+                        <h2>What You'll Do</h2>
+                        <p>
+                            Place quadrats or run transects in a simulated environment. Within each sampling
+                            unit, identify every species present and count individuals (or estimate percent
+                            cover for sessile organisms). Calculate species richness (S), evenness (J'),
+                            Shannon-Wiener diversity (H'), and Simpson's index (1 &ndash; D). Compare these
+                            metrics across different zones, sites, or experimental conditions.
+                        </p>
+                        <p>
+                            Build species accumulation curves by plotting the cumulative number of species
+                            detected against sampling effort. This tells you whether you've sampled enough
+                            to characterize the community&mdash;if the curve is still rising steeply, you
+                            probably haven't. If it's plateauing, you're in good shape.
+                        </p>
+
+                        <h2>Learning Objectives</h2>
+                        <ol>
+                            <li>Conduct systematic quadrat and transect surveys using standardized field protocols</li>
+                            <li>Calculate and interpret Shannon-Wiener (H') and Simpson's (1 &ndash; D) diversity indices, and understand when each is most appropriate</li>
+                            <li>Assess sampling sufficiency using species accumulation curves and rarefaction</li>
+                            <li>Compare community composition across environmental gradients and identify drivers of diversity patterns</li>
+                        </ol>
+
+                        <h2>Animal Systems</h2>
+                        <ul>
+                            <li><strong>Rocky Intertidal</strong> &mdash; Quadrat surveys across tidal zones; identify mussels, barnacles, anemones, sea stars, limpets, and algae. Strong zonation patterns make this ideal for comparing diversity across an environmental gradient</li>
+                            <li><strong>Forest Floor</strong> &mdash; Leaf litter sampling for invertebrates (beetles, springtails, mites, millipedes), fungi, and mosses. High species richness and patchy distributions challenge your sampling design</li>
+                            <li><strong>Coral Reef</strong> &mdash; Belt transects along the reef; survey fish species, coral genera, and invertebrates. Three-dimensional habitat structure adds complexity to the sampling</li>
+                        </ul>
+
+                        <h2>Background</h2>
+                        <p>
+                            Ecologists distinguish between alpha diversity (local species richness), beta
+                            diversity (turnover between sites), and gamma diversity (regional species pool).
+                            This experiment focuses primarily on alpha diversity, but comparing across sites
+                            within a system gives you a window into beta diversity as well.
+                        </p>
+                        <p>
+                            The Shannon-Wiener index (H') accounts for both richness and evenness&mdash;a
+                            community with 10 equally common species scores higher than one with 10 species
+                            where a single species dominates. Simpson's index (1 &ndash; D) gives the probability
+                            that two randomly chosen individuals belong to different species. Both are widely
+                            used, and understanding the difference between them matters: Shannon-Wiener weights
+                            rare species more heavily, while Simpson's is more sensitive to dominant species.
+                        </p>
+                        <p>
+                            Species-area relationships, first described by Arrhenius in 1921, predict that larger
+                            areas contain more species, following a power-law function. The intermediate disturbance
+                            hypothesis (Connell, 1978) predicts that diversity peaks at intermediate levels of
+                            disturbance&mdash;too little disturbance allows competitive exclusion, too much
+                            eliminates sensitive species. Both ideas provide testable frameworks you can explore
+                            with the data you collect.
+                        </p>
+
+                    </div>
+
+                    <aside class="experiment-sidebar">
+                        <div class="sidebar-card">
+                            <a class="btn btn-primary btn-disabled" style="width:100%; text-align:center;">Launch Simulation</a>
+                            <p class="text-small text-muted" style="margin-top: 0.75rem; text-align: center;">Coming Soon</p>
+                        </div>
+
+                        <div class="sidebar-card">
+                            <h4>Skills You'll Gain</h4>
+                            <ul>
+                                <li>Quadrat and transect methodology</li>
+                                <li>Species identification</li>
+                                <li>Diversity index calculation</li>
+                                <li>Species accumulation curves</li>
+                                <li>Comparative community analysis</li>
+                            </ul>
+                        </div>
+
+                        <div class="sidebar-card">
+                            <h4>Quick Facts</h4>
+                            <ul>
+                                <li><strong>Difficulty:</strong> Intermediate</li>
+                                <li><strong>Duration:</strong> 45&ndash;60 min</li>
+                                <li><strong>Discipline:</strong> Population &amp; Community Ecology</li>
+                            </ul>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo-mark">BL</span>
+                    <p>Bringing simulated hands-on research experiences to every STEM student, regardless of circumstance.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-col">
+                        <h4>Platform</h4>
+                        <a href="/experiments/">Experiments</a>
+                        <a href="/publications/">Publications</a>
+                        <a href="/resources/">Resources</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Project</h4>
+                        <a href="/about/">About</a>
+                        <a href="/about/#contact">Contact</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Borchard Labs &middot; A dissertation project by Mason Borchard</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/assets/js/nav.js"></script>
+</body>
+</html>

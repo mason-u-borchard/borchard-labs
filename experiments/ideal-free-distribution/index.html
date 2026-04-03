@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ideal Free Distribution | Borchard Labs</title>
+    <meta name="description" content="Test ideal free distribution predictions across five animal systems. Manipulate resource patches and compare observed forager distributions against IFD theory.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/main.css">
+</head>
+<body>
+
+    <nav class="site-nav" id="siteNav">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">
+                <span class="logo-mark">BL</span>
+                <span class="logo-text">Borchard Labs</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="/experiments/" class="active">Experiments</a></li>
+                <li><a href="/publications/">Publications</a></li>
+                <li><a href="/resources/">Resources</a></li>
+                <li><a href="/about/">About</a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+    <div class="mobile-nav" id="mobileNav">
+        <a href="/experiments/" class="active">Experiments</a>
+        <a href="/publications/">Publications</a>
+        <a href="/resources/">Resources</a>
+        <a href="/about/">About</a>
+    </div>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <nav class="breadcrumb">
+                    <a href="/">Home</a> &rsaquo; <a href="/experiments/">Experiments</a> &rsaquo; Ideal Free Distribution
+                </nav>
+                <h1>Ideal Free Distribution</h1>
+                <div class="tags">
+                    <span class="tag tag-green">Behavioral Ecology</span>
+                    <span class="difficulty">
+                        <span class="difficulty-dot filled"></span>
+                        <span class="difficulty-dot"></span>
+                        <span class="difficulty-dot"></span>
+                        Beginner
+                    </span>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="experiment-content">
+                    <div class="experiment-body">
+
+                        <h2>Overview</h2>
+                        <p>
+                            The Ideal Free Distribution (IFD) theory predicts that animals will distribute
+                            themselves among resource patches in proportion to the resources available at each
+                            patch. If patch A has twice the food of patch B, you'd expect twice as many foragers
+                            at patch A. It's an elegant prediction&mdash;and in practice, organisms aren't
+                            perfectly ideal or perfectly free, so deviations from the prediction reveal
+                            interesting behavioral constraints.
+                        </p>
+                        <p>
+                            Maybe animals can't assess patch quality perfectly. Maybe dominant individuals
+                            monopolize the best spots. Maybe there are travel costs that keep individuals
+                            from redistributing as quickly as the model assumes. Each deviation tells you
+                            something about the biology of the system you're studying.
+                        </p>
+
+                        <h2>What You'll Do</h2>
+                        <p>
+                            Choose from five animal systems (see below). Set the resource distribution across
+                            two or more patches. Run the simulation and count how many individuals settle at
+                            each patch over time. Compare your observed distributions against the IFD prediction
+                            using chi-square goodness-of-fit tests. Then manipulate patch quality&mdash;double
+                            one patch, halve another&mdash;and watch how the animals redistribute.
+                        </p>
+                        <p>
+                            You can also track redistribution dynamics: how quickly do individuals switch
+                            patches after a resource change? Do some systems reach equilibrium faster than
+                            others? These time-series data give you a richer picture than static counts alone.
+                        </p>
+
+                        <h2>Learning Objectives</h2>
+                        <ol>
+                            <li>State and test the predictions of ideal free distribution theory</li>
+                            <li>Quantify deviation from expected distributions using chi-square goodness-of-fit tests</li>
+                            <li>Identify factors that cause organisms to deviate from IFD predictions (interference, perceptual limits, travel costs)</li>
+                            <li>Compare IFD patterns across taxa and evaluate whether some species match predictions better than others</li>
+                        </ol>
+
+                        <h2>Animal Systems</h2>
+                        <ul>
+                            <li><strong>American Coots</strong> &mdash; Foraging on a lake with patchy aquatic vegetation</li>
+                            <li><strong>Mallard Ducks</strong> &mdash; Bread tossed at two locations on a pond (the classic Harper 1982 setup)</li>
+                            <li><strong>Three-spined Sticklebacks</strong> &mdash; Lab tank with two food-delivery pipes at different rates</li>
+                            <li><strong>European Starlings</strong> &mdash; Feeding stations in an open field with variable provisioning</li>
+                            <li><strong>Bumblebees</strong> &mdash; Visiting artificial flower patches with different nectar rewards</li>
+                        </ul>
+
+                        <h2>Background</h2>
+                        <p>
+                            Fretwell and Lucas published the IFD model in 1970. The core assumptions are
+                            straightforward: animals are "ideal" (they have perfect knowledge of patch quality)
+                            and "free" (they can move between patches at no cost). Under these conditions,
+                            the predicted outcome is input matching&mdash;the number of foragers at each patch
+                            is proportional to the resource input rate.
+                        </p>
+                        <p>
+                            Real animals violate both assumptions to varying degrees. Interference competition
+                            among foragers is common, especially in species with dominance hierarchies. Perceptual
+                            limitations mean animals often can't assess patch quality until they've sampled it.
+                            And travel between patches always takes time and energy. The IFD works best as a null
+                            model: you test it, find deviations, and then ask what's causing them. That's where
+                            the interesting biology lives.
+                        </p>
+
+                    </div>
+
+                    <aside class="experiment-sidebar">
+                        <div class="sidebar-card">
+                            <a class="btn btn-primary btn-disabled" style="width:100%; text-align:center;">Launch Simulation</a>
+                            <p class="text-small text-muted" style="margin-top: 0.75rem; text-align: center;">Coming Soon</p>
+                        </div>
+
+                        <div class="sidebar-card">
+                            <h4>Skills You'll Gain</h4>
+                            <ul>
+                                <li>Chi-square goodness-of-fit testing</li>
+                                <li>Resource-matching analysis</li>
+                                <li>Observational data collection</li>
+                                <li>Time-series recording</li>
+                                <li>Cross-taxa comparison</li>
+                            </ul>
+                        </div>
+
+                        <div class="sidebar-card">
+                            <h4>Quick Facts</h4>
+                            <ul>
+                                <li><strong>Difficulty:</strong> Beginner</li>
+                                <li><strong>Duration:</strong> 30&ndash;45 min</li>
+                                <li><strong>Discipline:</strong> Behavioral Ecology</li>
+                            </ul>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo-mark">BL</span>
+                    <p>Bringing simulated hands-on research experiences to every STEM student, regardless of circumstance.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-col">
+                        <h4>Platform</h4>
+                        <a href="/experiments/">Experiments</a>
+                        <a href="/publications/">Publications</a>
+                        <a href="/resources/">Resources</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Project</h4>
+                        <a href="/about/">About</a>
+                        <a href="/about/#contact">Contact</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Borchard Labs &middot; A dissertation project by Mason Borchard</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/assets/js/nav.js"></script>
+</body>
+</html>

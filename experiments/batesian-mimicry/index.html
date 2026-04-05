@@ -9,6 +9,16 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!-- Three.js import map for 3D/VR simulation -->
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+            "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+        }
+    }
+    </script>
 </head>
 <body>
 
@@ -46,7 +56,7 @@
                 </nav>
                 <h1>Batesian Mimicry</h1>
                 <div class="tags">
-                    <span class="tag tag-green">Behavioral Ecology</span>
+                    <span class="tag tag-blue">Population &amp; Community</span>
                     <span class="difficulty">
                         <span class="difficulty-dot filled"></span>
                         <span class="difficulty-dot filled"></span>
@@ -79,33 +89,41 @@
 
                         <h2>What You'll Do</h2>
                         <p>
-                            Choose a mimic-model system from the options below. Set the initial ratio of mimics
-                            to models in the environment. Observe predator encounters as they happen: does the
-                            predator attack or avoid the prey item? Track how predator behavior changes over
-                            successive encounters&mdash;this gives you a learning curve. Then measure survival
-                            rates of mimics at different frequency ratios.
+                            You'll take on the role of a field researcher conducting a salamander
+                            survey in an Appalachian hardwood forest. Pick a survey date, set up
+                            your transects, and start flipping cover objects -- rocks, logs, boards,
+                            bark -- along the forest floor. Under each one you might find nothing,
+                            a common Red-backed Salamander, or if you're lucky, a Red Salamander
+                            or a Red Eft.
                         </p>
                         <p>
-                            You'll run multiple trials at different mimic-to-model ratios to identify the tipping
-                            point where mimicry stops working. At what frequency do predators start ignoring the
-                            warning signal? And does that threshold differ across the five animal systems?
+                            When you find a salamander, you'll need to identify it. The Red
+                            Salamander (<em>Pseudotriton ruber</em>) closely resembles the toxic
+                            Red Eft stage of the Eastern Newt (<em>Notophthalmus viridescens</em>)
+                            -- that resemblance is the mimicry, and telling them apart requires
+                            careful observation of skin texture, spot patterns, tail shape, and
+                            costal grooves. Record your measurements in a field notebook, check
+                            your data before leaving the site, and analyze your results to test
+                            whether the mimic-to-model ratio in your data supports the predictions
+                            of frequency-dependent selection theory.
                         </p>
 
                         <h2>Learning Objectives</h2>
                         <ol>
                             <li>Explain the frequency-dependent nature of Batesian mimicry and why mimic rarity is essential</li>
-                            <li>Quantify predator learning rates from sequential encounter data</li>
-                            <li>Determine the threshold mimic-to-model ratio at which mimicry protection breaks down</li>
-                            <li>Compare mimicry effectiveness across different animal systems with varying signal fidelity</li>
+                            <li>Practice systematic field survey protocols: transect setup, cover object surveys, specimen handling, and data recording</li>
+                            <li>Distinguish between similar-looking species using morphological characters under realistic conditions</li>
+                            <li>Calculate mimic-to-model ratios and apply chi-square tests to evaluate frequency-dependent selection</li>
+                            <li>Evaluate data quality, recognize sources of error, and understand detection probability</li>
                         </ol>
 
                         <h2>Animal Systems</h2>
                         <ul>
-                            <li><strong>Red Salamander / Eastern Newt</strong> &mdash; Forest floor; the red salamander mimics the toxic red-spotted newt</li>
-                            <li><strong>Viceroy / Monarch Butterfly</strong> &mdash; Open meadow; the classic textbook example (though the story is more complicated than most textbooks admit)</li>
-                            <li><strong>Scarlet Kingsnake / Eastern Coral Snake</strong> &mdash; Forest; "red touches yellow, kills a fellow" ring patterns</li>
-                            <li><strong>Hoverflies / Yellowjacket Wasps</strong> &mdash; Garden; hoverflies gain protection from their wasp-like coloration</li>
-                            <li><strong>Zone-tailed Hawk / Turkey Vulture</strong> &mdash; Sky; the hawk mimics the vulture's flight profile to approach prey undetected</li>
+                            <li><strong>Red Salamander / Eastern Newt</strong>  -- Forest floor; the red salamander mimics the toxic red-spotted newt</li>
+                            <li><strong>Viceroy / Monarch Butterfly</strong>  -- Open meadow; the classic textbook example (though the story is more complicated than most textbooks admit)</li>
+                            <li><strong>Scarlet Kingsnake / Eastern Coral Snake</strong>  -- Forest; "red touches yellow, kills a fellow" ring patterns</li>
+                            <li><strong>Hoverflies / Yellowjacket Wasps</strong>  -- Garden; hoverflies gain protection from their wasp-like coloration</li>
+                            <li><strong>Zone-tailed Hawk / Turkey Vulture</strong>  -- Sky; the hawk mimics the vulture's flight profile to approach prey undetected</li>
                         </ul>
 
                         <h2>Background</h2>
@@ -122,12 +140,12 @@
                             experience (the model is distasteful), so avoidance is maintained. As mimics become
                             more common, the average encounter becomes less aversive, and predators start
                             sampling the pattern again. This creates negative frequency-dependent selection on
-                            the mimic phenotype&mdash;the rarer you are, the better off you are.
+                            the mimic phenotype --the rarer you are, the better off you are.
                         </p>
                         <p>
                             Models can also evolve in response to mimics. If a model population experiences
                             increased predation because mimics have diluted the effectiveness of the warning
-                            signal, selection may favor models that look less like the mimics&mdash;driving an
+                            signal, selection may favor models that look less like the mimics --driving an
                             evolutionary arms race. These dynamics make Batesian mimicry one of the richest
                             topics in evolutionary ecology.
                         </p>
@@ -136,18 +154,17 @@
 
                     <aside class="experiment-sidebar">
                         <div class="sidebar-card">
-                            <a class="btn btn-primary btn-disabled" style="width:100%; text-align:center;">Launch Simulation</a>
-                            <p class="text-small text-muted" style="margin-top: 0.75rem; text-align: center;">Coming Soon</p>
+                            <a href="#bm-simulation" class="btn btn-primary" style="width:100%; text-align:center;">Launch Simulation</a>
                         </div>
 
                         <div class="sidebar-card">
                             <h4>Skills You'll Gain</h4>
                             <ul>
-                                <li>Frequency analysis</li>
-                                <li>Survival rate calculation</li>
-                                <li>Learning curve modeling</li>
+                                <li>Field survey protocols</li>
+                                <li>Species identification</li>
+                                <li>Morphometric data collection</li>
                                 <li>Chi-square testing</li>
-                                <li>Experimental variable manipulation</li>
+                                <li>Frequency-dependent selection analysis</li>
                             </ul>
                         </div>
 
@@ -156,10 +173,22 @@
                             <ul>
                                 <li><strong>Difficulty:</strong> Intermediate</li>
                                 <li><strong>Duration:</strong> 45&ndash;60 min</li>
-                                <li><strong>Discipline:</strong> Behavioral Ecology</li>
+                                <li><strong>Discipline:</strong> Population &amp; Community Ecology</li>
                             </ul>
                         </div>
                     </aside>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-alt" id="bm-simulation">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Run the Simulation</h2>
+                    <p>Configure your field survey below and click Start to begin</p>
+                </div>
+                <div id="bm-simulation-container" class="sim-container" style="min-height: 500px; padding: 0; position: relative; overflow: hidden;">
+                    <p class="text-muted text-center" id="bm-loading" style="padding: 2rem;">Loading simulation...</p>
                 </div>
             </div>
         </section>
@@ -193,5 +222,7 @@
     </footer>
 
     <script src="/assets/js/nav.js"></script>
+    <!-- 3D/VR simulation entry point -->
+    <script type="module" src="/sim/experiments/batesian-mimicry/3d/main.js"></script>
 </body>
 </html>

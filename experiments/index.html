@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Experiment Catalog - Borchard Labs</title>
-    <meta name="description" content="Browse 16 research simulations spanning behavioral ecology, population dynamics, genetics, marine biology, and environmental science.">
+    <meta name="description" content="Browse 16 research simulations spanning behavioral ecology, population and community ecology, genetics, and environmental science.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -44,7 +44,7 @@
             <div class="container">
                 <h1>Experiment Catalog</h1>
                 <p class="text-muted" style="font-size: 1.15rem; max-width: 640px; margin-top: var(--space-sm);">
-                    Browse research simulations across five scientific disciplines. Each experiment
+                    Browse research simulations across four scientific disciplines. Each experiment
                     lets you collect real data, run analyses, and build research skills from your browser.
                 </p>
             </div>
@@ -59,9 +59,8 @@
                     <button class="filter-btn active" data-filter="all">All</button>
                     <button class="filter-btn" data-filter="behavioral-ecology">Behavioral Ecology</button>
                     <button class="filter-btn" data-filter="population-community">Population &amp; Community</button>
-                    <button class="filter-btn" data-filter="physiology-environment">Physiology &amp; Environment</button>
                     <button class="filter-btn" data-filter="genetics-evolution">Genetics &amp; Evolution</button>
-                    <button class="filter-btn" data-filter="marine-biology">Marine Biology</button>
+                    <button class="filter-btn" data-filter="environmental-science">Environmental Science</button>
                 </div>
 
                 <!-- Experiment Grid -->
@@ -128,25 +127,6 @@
 
                     <div class="card" data-discipline="behavioral-ecology">
                         <div class="card-thumb">
-                            <span class="placeholder-icon">&#x1F98E;</span>
-                        </div>
-                        <div class="card-body">
-                            <h3><a href="/experiments/batesian-mimicry/">Batesian Mimicry</a></h3>
-                            <p>Manipulate mimic-to-model ratios and observe predator learning across five different mimicry systems.</p>
-                        </div>
-                        <div class="card-footer">
-                            <span class="tag tag-green">Behavioral Ecology</span>
-                            <span class="difficulty">
-                                <span class="difficulty-dot filled"></span>
-                                <span class="difficulty-dot filled"></span>
-                                <span class="difficulty-dot"></span>
-                                Intermediate
-                            </span>
-                        </div>
-                    </div>
-
-                    <div class="card" data-discipline="behavioral-ecology">
-                        <div class="card-thumb">
                             <span class="placeholder-icon">&#x1F43F;&#xFE0F;</span>
                         </div>
                         <div class="card-body">
@@ -171,6 +151,25 @@
                         <div class="card-body">
                             <h3><a href="/experiments/territorial-behavior/">Territorial Behavior</a></h3>
                             <p>Measure the Dear Enemy Effect in song sparrows, anole lizards, or cichlid fish defending territories.</p>
+                        </div>
+                        <div class="card-footer">
+                            <span class="tag tag-green">Behavioral Ecology</span>
+                            <span class="difficulty">
+                                <span class="difficulty-dot filled"></span>
+                                <span class="difficulty-dot filled"></span>
+                                <span class="difficulty-dot"></span>
+                                Intermediate
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="card" data-discipline="behavioral-ecology">
+                        <div class="card-thumb">
+                            <span class="placeholder-icon">&#x1F40B;</span>
+                        </div>
+                        <div class="card-body">
+                            <h3><a href="/experiments/whale-migration/">Whale Migration Tracking</a></h3>
+                            <p>Track whale pod movements on an interactive map with sea temperature and food availability overlays.</p>
                         </div>
                         <div class="card-footer">
                             <span class="tag tag-green">Behavioral Ecology</span>
@@ -242,18 +241,16 @@
                         </div>
                     </div>
 
-                    <!-- ======== Physiology & Environmental Science ======== -->
-
-                    <div class="card" data-discipline="physiology-environment">
+                    <div class="card" data-discipline="population-community">
                         <div class="card-thumb">
-                            <span class="placeholder-icon">&#x1F321;&#xFE0F;</span>
+                            <span class="placeholder-icon">&#x1F98E;</span>
                         </div>
                         <div class="card-body">
-                            <h3><a href="/experiments/thermal-biology/">Thermal Biology / Critical Thermal Limits</a></h3>
-                            <p>Generate temperature-performance curves for anole lizards, intertidal snails, or freshwater fish.</p>
+                            <h3><a href="/experiments/batesian-mimicry/">Batesian Mimicry</a></h3>
+                            <p>Manipulate mimic-to-model ratios and observe predator learning across five different mimicry systems.</p>
                         </div>
                         <div class="card-footer">
-                            <span class="tag tag-bark">Physiology &amp; Environment</span>
+                            <span class="tag tag-blue">Population &amp; Community</span>
                             <span class="difficulty">
                                 <span class="difficulty-dot filled"></span>
                                 <span class="difficulty-dot filled"></span>
@@ -263,16 +260,16 @@
                         </div>
                     </div>
 
-                    <div class="card" data-discipline="physiology-environment">
+                    <div class="card" data-discipline="population-community">
                         <div class="card-thumb">
-                            <span class="placeholder-icon">&#x1F3DE;&#xFE0F;</span>
+                            <span class="placeholder-icon">&#x1F980;</span>
                         </div>
                         <div class="card-body">
-                            <h3><a href="/experiments/water-quality/">Water Quality Bioassessment</a></h3>
-                            <p>Collect stream macroinvertebrates with kick-net sampling and identify organisms using dichotomous keys to assess water quality.</p>
+                            <h3><a href="/experiments/tide-pool/">Tide Pool Ecology</a></h3>
+                            <p>Survey rocky intertidal zonation patterns. Place quadrats across tidal zones and document species distribution.</p>
                         </div>
                         <div class="card-footer">
-                            <span class="tag tag-bark">Physiology &amp; Environment</span>
+                            <span class="tag tag-blue">Population &amp; Community</span>
                             <span class="difficulty">
                                 <span class="difficulty-dot filled"></span>
                                 <span class="difficulty-dot"></span>
@@ -282,7 +279,47 @@
                         </div>
                     </div>
 
-                    <div class="card" data-discipline="physiology-environment">
+                    <!-- ======== Environmental Science ======== -->
+
+                    <div class="card" data-discipline="environmental-science">
+                        <div class="card-thumb">
+                            <span class="placeholder-icon">&#x1F321;&#xFE0F;</span>
+                        </div>
+                        <div class="card-body">
+                            <h3><a href="/experiments/thermal-biology/">Thermal Biology / Critical Thermal Limits</a></h3>
+                            <p>Generate temperature-performance curves for anole lizards, intertidal snails, or freshwater fish.</p>
+                        </div>
+                        <div class="card-footer">
+                            <span class="tag tag-bark">Environmental Science</span>
+                            <span class="difficulty">
+                                <span class="difficulty-dot filled"></span>
+                                <span class="difficulty-dot filled"></span>
+                                <span class="difficulty-dot"></span>
+                                Intermediate
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="card" data-discipline="environmental-science">
+                        <div class="card-thumb">
+                            <span class="placeholder-icon">&#x1F3DE;&#xFE0F;</span>
+                        </div>
+                        <div class="card-body">
+                            <h3><a href="/experiments/water-quality/">Water Quality Bioassessment</a></h3>
+                            <p>Collect stream macroinvertebrates with kick-net sampling and identify organisms using dichotomous keys to assess water quality.</p>
+                        </div>
+                        <div class="card-footer">
+                            <span class="tag tag-bark">Environmental Science</span>
+                            <span class="difficulty">
+                                <span class="difficulty-dot filled"></span>
+                                <span class="difficulty-dot"></span>
+                                <span class="difficulty-dot"></span>
+                                Beginner
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="card" data-discipline="environmental-science">
                         <div class="card-thumb">
                             <span class="placeholder-icon">&#x1F331;</span>
                         </div>
@@ -291,7 +328,7 @@
                             <p>Track seasonal plant changes across multiple climate scenarios and analyze phenological shifts.</p>
                         </div>
                         <div class="card-footer">
-                            <span class="tag tag-bark">Physiology &amp; Environment</span>
+                            <span class="tag tag-bark">Environmental Science</span>
                             <span class="difficulty">
                                 <span class="difficulty-dot filled"></span>
                                 <span class="difficulty-dot"></span>
@@ -332,46 +369,6 @@
                         </div>
                         <div class="card-footer">
                             <span class="tag tag-gold">Genetics &amp; Evolution</span>
-                            <span class="difficulty">
-                                <span class="difficulty-dot filled"></span>
-                                <span class="difficulty-dot filled"></span>
-                                <span class="difficulty-dot"></span>
-                                Intermediate
-                            </span>
-                        </div>
-                    </div>
-
-                    <!-- ======== Marine Biology ======== -->
-
-                    <div class="card" data-discipline="marine-biology">
-                        <div class="card-thumb">
-                            <span class="placeholder-icon">&#x1F980;</span>
-                        </div>
-                        <div class="card-body">
-                            <h3><a href="/experiments/tide-pool/">Tide Pool Ecology</a></h3>
-                            <p>Survey rocky intertidal zonation patterns. Place quadrats across tidal zones and document species distribution.</p>
-                        </div>
-                        <div class="card-footer">
-                            <span class="tag tag-rust">Marine Biology</span>
-                            <span class="difficulty">
-                                <span class="difficulty-dot filled"></span>
-                                <span class="difficulty-dot"></span>
-                                <span class="difficulty-dot"></span>
-                                Beginner
-                            </span>
-                        </div>
-                    </div>
-
-                    <div class="card" data-discipline="marine-biology">
-                        <div class="card-thumb">
-                            <span class="placeholder-icon">&#x1F40B;</span>
-                        </div>
-                        <div class="card-body">
-                            <h3><a href="/experiments/whale-migration/">Whale Migration Tracking</a></h3>
-                            <p>Track whale pod movements on an interactive map with sea temperature and food availability overlays.</p>
-                        </div>
-                        <div class="card-footer">
-                            <span class="tag tag-rust">Marine Biology</span>
                             <span class="difficulty">
                                 <span class="difficulty-dot filled"></span>
                                 <span class="difficulty-dot filled"></span>

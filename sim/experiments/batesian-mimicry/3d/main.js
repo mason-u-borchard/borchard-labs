@@ -9,6 +9,11 @@
 import * as THREE from 'three';
 import { VRButton } from 'three/addons/webxr/VRButton.js';
 
+import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
+import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
+import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
+import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
+
 import { FieldSetup } from '../FieldSetup.js';
 import { WeatherSystem } from '../WeatherSystem.js';
 import { EventEngine } from '../EventEngine.js';
@@ -26,6 +31,7 @@ import { UIManager } from './UIManager.js';
 // ── Module state ───────────────────────────────────────────────────
 
 var renderer, scene, camera;
+var composer, bloom;
 var container, resizeObserver;
 var weatherSystem, eventEngine;
 var sceneBuilder, inputManager, desktopControls, uiManager;
@@ -66,7 +72,7 @@ function init(parentEl, cfg) {
     renderer = new THREE.WebGLRenderer({ antialias: true });
     renderer.outputColorSpace = THREE.SRGBColorSpace;
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    renderer.toneMappingExposure = 0.8;
+    renderer.toneMappingExposure = 1.1;
     renderer.shadowMap.enabled = true;
     renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
@@ -78,15 +84,16 @@ function init(parentEl, cfg) {
 
     // Scene
     scene = new THREE.Scene();
-    scene.background = new THREE.Color(0xB4C8D8);
-    scene.fog = new THREE.FogExp2(0xB4C8D8, 0.015);
+    scene.background = new THREE.Color(0xC4D4C8);
+    scene.fog = new THREE.FogExp2(0xC4D4C8, 0.012);
 
-    // Camera
+    // Camera -- start at edge of terrain, looking toward center where objects are
     camera = new THREE.PerspectiveCamera(60, rect.width / Math.max(rect.height, 500), 0.1, 200);
-    camera.position.set(0, 1.65, 5);
+    camera.position.set(0, 1.65, 20);
+    camera.lookAt(0, 0, 0);
 
     // Lighting
-    var sun = new THREE.DirectionalLight(0xFFF5E0, 1.5);
+    var sun = new THREE.DirectionalLight(0xFFF5E0, 1.0);
     sun.position.set(15, 25, 10);
     sun.castShadow = true;
     sun.shadow.mapSize.set(2048, 2048);
@@ -96,15 +103,31 @@ function init(parentEl, cfg) {
     sun.shadow.camera.bottom = -20;
     sun.shadow.camera.near = 0.5;
     sun.shadow.camera.far = 80;
+    sun.shadow.bias = -0.001;
+    sun.shadow.normalBias = 0.02;
     scene.add(sun);
 
-    scene.add(new THREE.HemisphereLight(0xB4C8D8, 0x6B5B47, 0.6));
-    scene.add(new THREE.AmbientLight(0x404040, 0.3));
+    scene.add(new THREE.HemisphereLight(0xC4D4C8, 0x6B5B47, 0.9));
+    scene.add(new THREE.AmbientLight(0x404040, 0.5));
 
     // VR button
     if (navigator.xr) {
         container.appendChild(VRButton.createButton(renderer));
     }
+
+    // Post-processing
+    composer = new EffectComposer(renderer);
+    composer.addPass(new RenderPass(scene, camera));
+
+    bloom = new UnrealBloomPass(
+        new THREE.Vector2(rect.width, rect.height),
+        0.15,   // strength -- very subtle
+        0.4,    // radius
+        0.85    // threshold -- only bright areas bloom
+    );
+    composer.addPass(bloom);
+
+    composer.addPass(new OutputPass());
 
     // Simulation systems
     var month = parseInt(cfg.surveyMonth, 10) || DEFAULTS.surveyMonth;
@@ -114,7 +137,11 @@ function init(parentEl, cfg) {
 
     // Scene builder (terrain, trees, ferns, atmosphere)
     sceneBuilder = new SceneBuilder(scene, cfg);
-    sceneBuilder.build();
+    sceneBuilder.build().then(function() {
+        // Scene assets loaded
+    }).catch(function(err) {
+        console.warn('Some assets failed to load:', err);
+    });
 
     // Salamander renderer
     salamanderRenderer = new SalamanderRenderer();
@@ -149,8 +176,14 @@ function init(parentEl, cfg) {
         camera.aspect = w / h;
         camera.updateProjectionMatrix();
         renderer.setSize(w, h);
+        if (composer) composer.setSize(w, h);
+        if (bloom) bloom.resolution.set(w, h);
     });
     resizeObserver.observe(container);
+
+    // Show the keyboard controls guide
+    var guideEl = document.getElementById('bm-controls-guide');
+    if (guideEl) guideEl.style.display = 'block';
 
     // Start
     clock.start();
@@ -214,11 +247,19 @@ function animate() {
     var dt = clock.getDelta();
 
     // Update desktop controls
-    if (desktopControls && desktopControls.isLocked()) {
-        // Terrain following
-        var pos = camera.position;
-        var terrainY = sceneBuilder.getTerrainHeightAt(pos.x, pos.z);
+    if (desktopControls) {
         desktopControls.update(dt);
+
+        // Terrain following -- keep camera above the ground
+        if (sceneBuilder) {
+            var pos = camera.position;
+            var terrainY = sceneBuilder.getTerrainHeightAt(pos.x, pos.z);
+            var standH = 1.65;
+            var minY = terrainY + standH;
+            if (pos.y < minY) {
+                pos.y = minY;
+            }
+        }
     }
 
     // Update scene atmosphere (particles, leaves)
@@ -253,7 +294,12 @@ function animate() {
     // Update input hover highlights
     if (inputManager) inputManager.update();
 
-    renderer.render(scene, camera);
+    // EffectComposer doesn't work in VR -- fall back to direct render
+    if (renderer.xr.isPresenting) {
+        renderer.render(scene, camera);
+    } else {
+        composer.render();
+    }
 }
 
 

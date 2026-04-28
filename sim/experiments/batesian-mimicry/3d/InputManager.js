@@ -19,7 +19,7 @@ export class InputManager {
         this.scene = scene;
 
         this.raycaster = new THREE.Raycaster();
-        this.raycaster.far = 3; // 3m interaction range per design spec
+        this.raycaster.far = 10; // generous interaction range for cover objects
 
         this._selectCallbacks = [];
         this._gripCallbacks = [];
@@ -98,6 +98,9 @@ export class InputManager {
     _setupDesktopListeners() {
         this._onMouseDown = (e) => {
             if (this.isVR()) return;
+
+            // Only interact when pointer is locked (in first-person mode)
+            if (!document.pointerLockElement) return;
 
             const hit = this._interactiveObjects.length > 0
                 ? this.raycast(this._interactiveObjects)
@@ -197,14 +200,16 @@ export class InputManager {
     // -- Event dispatch ----------------------------------------------------
 
     _fireSelect(hit) {
+        var target = hit ? hit.object : null;
         for (let i = 0; i < this._selectCallbacks.length; i++) {
-            this._selectCallbacks[i](hit);
+            this._selectCallbacks[i](target);
         }
     }
 
     _fireGrip(hit) {
+        var target = hit ? hit.object : null;
         for (let i = 0; i < this._gripCallbacks.length; i++) {
-            this._gripCallbacks[i](hit);
+            this._gripCallbacks[i](target);
         }
     }
 

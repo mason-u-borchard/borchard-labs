@@ -66,7 +66,8 @@ export class DesktopControls {
 
 
     update(delta) {
-        if (!this._enabled || !this.controls.isLocked) return;
+        if (!this._enabled) return;
+        if (!this.controls.isLocked) return;
 
         // Determine speed based on crouch state
         const speed = this._keys.shift ? SPEED_CROUCH : SPEED_NORMAL;
@@ -119,7 +120,7 @@ export class DesktopControls {
     _buildLockPrompt() {
         this._promptEl = document.createElement('div');
         const s = this._promptEl.style;
-        s.position = 'fixed';
+        s.position = 'absolute';
         s.top = '0';
         s.left = '0';
         s.width = '100%';
@@ -128,22 +129,26 @@ export class DesktopControls {
         s.alignItems = 'center';
         s.justifyContent = 'center';
         s.background = 'rgba(0, 0, 0, 0.55)';
-        s.zIndex = '1000';
+        s.zIndex = '100';
         s.cursor = 'pointer';
 
         const label = document.createElement('span');
-        label.textContent = 'Click to look around';
+        label.textContent = 'Click to look around (WASD to walk, Shift to crouch)';
         const ls = label.style;
         ls.color = '#e0e0e0';
         ls.fontFamily = 'monospace';
-        ls.fontSize = '18px';
+        ls.fontSize = '16px';
         ls.padding = '16px 32px';
         ls.border = '1px solid #555';
         ls.borderRadius = '4px';
         ls.background = 'rgba(0, 0, 0, 0.7)';
+        ls.textAlign = 'center';
+        ls.lineHeight = '1.5';
 
         this._promptEl.appendChild(label);
-        document.body.appendChild(this._promptEl);
+
+        // Append to the renderer's parent (sim container), not document.body
+        this.renderer.domElement.parentElement.appendChild(this._promptEl);
 
         // Click on the prompt overlay to lock the pointer
         this._promptEl.addEventListener('click', () => {

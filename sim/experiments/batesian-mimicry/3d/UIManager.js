@@ -22,6 +22,7 @@ export class UIManager {
     constructor(container, config) {
         this._container = container;
         this._config = config;
+        this._onPointerUnlock = null; // callback to re-lock after overlay dismisses
 
         // Build the overlay wrapper that sits on top of the 3D canvas
         this._overlay = document.createElement('div');
@@ -69,10 +70,12 @@ export class UIManager {
         this._onIdentified = null;
 
         // Wire notebook save
+        var self = this;
         this._notebook.onSave(function (rowData) {
-            this._notebookWrap.style.display = 'none';
-            if (this._onRecordSaved) this._onRecordSaved(rowData);
-        }.bind(this));
+            self._notebookWrap.style.display = 'none';
+            self._relockPointer();
+            if (self._onRecordSaved) self._onRecordSaved(rowData);
+        });
     }
 
 
@@ -82,6 +85,8 @@ export class UIManager {
      * Show the species identification panel for a found animal.
      */
     showIDChallenge(salamanderTraits, difficulty) {
+        this._unlockPointer();
+
         // The ID challenge expects a salamander-like object with getTrait()
         var traitProxy = {
             traits: salamanderTraits,
@@ -107,6 +112,7 @@ export class UIManager {
      */
     hideIDChallenge() {
         this._idChallenge.hide();
+        // Don't relock yet -- notebook opens next
     }
 
 
@@ -116,6 +122,7 @@ export class UIManager {
      * Open the field notebook entry form for data recording.
      */
     showNotebook(animalTraits, coverObj, speciesId, isCorrect, surveyTime, airTemp) {
+        this._unlockPointer();
         this._notebookWrap.style.display = 'block';
 
         // Build a proxy object matching what FieldNotebook.openEntryForm expects
@@ -267,7 +274,9 @@ export class UIManager {
      * Register callback for the End Survey button.
      */
     onEndSurvey(callback) {
+        var self = this;
         this._endSurveyBtn.addEventListener('click', function () {
+            self._unlockPointer();
             if (callback) callback();
         });
     }
@@ -313,6 +322,9 @@ export class UIManager {
      * Show an event message with a Continue button (copperhead, egg clutch, etc.)
      */
     showEventMessage(event, onContinue) {
+        this._unlockPointer();
+
+        var self = this;
         var card = document.createElement('div');
         card.style.cssText = [
             'position: absolute',
@@ -345,6 +357,7 @@ export class UIManager {
         btn.style.pointerEvents = 'auto';
         btn.addEventListener('click', function () {
             if (card.parentNode) card.parentNode.removeChild(card);
+            self._relockPointer();
             if (onContinue) onContinue();
         });
 
@@ -392,6 +405,34 @@ export class UIManager {
 
     getAccuracyStats() {
         return this._idChallenge.getAccuracyStats();
+    }
+
+
+    // ── Pointer lock management ───────────────────────────────────
+
+    /**
+     * Exit pointer lock so the user can click HTML buttons.
+     * Call _relockPointer() when the overlay is dismissed.
+     */
+    _unlockPointer() {
+        if (document.pointerLockElement) {
+            document.exitPointerLock();
+        }
+    }
+
+    /**
+     * Re-engage pointer lock after an overlay is dismissed.
+     * Uses a short delay so the click that dismissed the overlay
+     * doesn't immediately re-trigger pointer lock.
+     */
+    _relockPointer() {
+        var container = this._container;
+        setTimeout(function () {
+            var canvas = container.querySelector('canvas');
+            if (canvas) {
+                canvas.requestPointerLock();
+            }
+        }, 200);
     }
 
 

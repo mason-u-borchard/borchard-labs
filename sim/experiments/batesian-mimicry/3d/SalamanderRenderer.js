@@ -70,6 +70,28 @@ function hslToRgbStr(h, s, l) {
     return 'rgb(' + Math.round(r * 255) + ',' + Math.round(g * 255) + ',' + Math.round(b * 255) + ')';
 }
 
+/** HSL (0-1) to {r,g,b} (0-255). */
+function hslToRgbObj(h, s, l) {
+    var r, g, b;
+    if (s === 0) { r = g = b = l; }
+    else {
+        var hue2rgb = function (p, q, t) {
+            if (t < 0) t += 1;
+            if (t > 1) t -= 1;
+            if (t < 1 / 6) return p + (q - p) * 6 * t;
+            if (t < 1 / 2) return q;
+            if (t < 2 / 3) return p + (q - p) * (2 / 3 - t) * 6;
+            return p;
+        };
+        var q = l < 0.5 ? l * (1 + s) : l + s - l * s;
+        var p = 2 * l - q;
+        r = hue2rgb(p, q, h + 1 / 3);
+        g = hue2rgb(p, q, h);
+        b = hue2rgb(p, q, h - 1 / 3);
+    }
+    return { r: Math.round(r * 255), g: Math.round(g * 255), b: Math.round(b * 255) };
+}
+
 /** Adjust a hex color by hue offset (degrees) and saturation offset (0-1). */
 function adjustColor(hex, hueOffset, satOffset) {
     var rgb = hexToRgb(hex);
@@ -78,6 +100,31 @@ function adjustColor(hex, hueOffset, satOffset) {
     hsl.s = clamp(hsl.s + satOffset, 0, 1);
     return hslToRgbStr(hsl.h, hsl.s, hsl.l);
 }
+
+/** Adjust a hex color and return the {r,g,b} object (0-255). */
+function adjustColorRgb(hex, hueOffset, satOffset) {
+    var rgb = hexToRgb(hex);
+    var hsl = rgbToHsl(rgb.r, rgb.g, rgb.b);
+    hsl.h = (hsl.h + hueOffset / 360 + 1) % 1;
+    hsl.s = clamp(hsl.s + satOffset, 0, 1);
+    return hslToRgbObj(hsl.h, hsl.s, hsl.l);
+}
+
+
+// ---------------------------------------------------------------------------
+// Per-species clearcoat settings
+// ---------------------------------------------------------------------------
+
+var CLEARCOAT = {
+    NOVI: { clearcoat: 0, clearcoatRoughness: 1.0 },
+    PSRU: { clearcoat: 0.4, clearcoatRoughness: 0.15 },
+    PLCI: { clearcoat: 0.3, clearcoatRoughness: 0.2 },
+    PLGL: { clearcoat: 0.7, clearcoatRoughness: 0.08 },
+    DEFU: { clearcoat: 0.3, clearcoatRoughness: 0.2 },
+    EUBI: { clearcoat: 0.3, clearcoatRoughness: 0.2 },
+    DEMO: { clearcoat: 0.3, clearcoatRoughness: 0.2 },
+    GYPO: { clearcoat: 0.35, clearcoatRoughness: 0.2 }
+};
 
 
 // ---------------------------------------------------------------------------
@@ -126,7 +173,7 @@ export class SalamanderRenderer {
         var normalCanvas = this.generateNormalMap(speciesKey);
 
         // Material
-        var mat = this.createMaterial(albedoCanvas, normalCanvas, sp);
+        var mat = this.createMaterial(albedoCanvas, normalCanvas, sp, speciesKey);
 
         // Assemble group
         var group = new THREE.Group();
@@ -301,70 +348,124 @@ export class SalamanderRenderer {
         var hueOff = traits.bodyHueOffset || 0;
         var satOff = traits.bodySatOffset || 0;
 
-        // Base body color
+        // ---- Gradient body color (dorsal lighter, sides slightly darker) ----
+        var bodyRgb = adjustColorRgb(sp.color.body, hueOff, satOff);
+        var bodyHsl = rgbToHsl(bodyRgb.r, bodyRgb.g, bodyRgb.b);
+
+        // Dorsal = slightly lighter, sides = base
+        var dorsalColor = hslToRgbStr(bodyHsl.h, bodyHsl.s, clamp(bodyHsl.l + 0.06, 0, 1));
+        var sideColor = hslToRgbStr(bodyHsl.h, bodyHsl.s, clamp(bodyHsl.l - 0.03, 0, 1));
         var bodyColor = adjustColor(sp.color.body, hueOff, satOff);
-        ctx.fillStyle = bodyColor;
+
+        var bodyGrad = ctx.createLinearGradient(0, 0, 0, h * 0.67);
+        bodyGrad.addColorStop(0, dorsalColor);
+        bodyGrad.addColorStop(0.4, bodyColor);
+        bodyGrad.addColorStop(1.0, sideColor);
+        ctx.fillStyle = bodyGrad;
         ctx.fillRect(0, 0, w, h);
 
-        // Belly region (lower third)
+        // ---- Subtle mottling: random darker patches for organic variation ----
+        var mottleCount = Math.floor(randRange(30, 50));
+        for (var m = 0; m < mottleCount; m++) {
+            var mx = randRange(0, w);
+            var my = randRange(0, h * 0.65);
+            var mr = randRange(8, 22);
+            ctx.beginPath();
+            ctx.arc(mx, my, mr, 0, Math.PI * 2);
+            ctx.fillStyle = 'rgba(0, 0, 0, ' + randRange(0.05, 0.08).toFixed(3) + ')';
+            ctx.fill();
+        }
+
+        // ---- Belly region with smooth gradient transition ----
         var bellyColor = sp.color.belly ? adjustColor(sp.color.belly, hueOff * 0.3, satOff * 0.5) : bodyColor;
+
+        // Smooth belly transition over 20% of canvas height
+        var transitionTop = Math.floor(h * 0.55);
+        var transitionBot = Math.floor(h * 0.75);
+        var bellyGrad = ctx.createLinearGradient(0, transitionTop, 0, transitionBot);
+        bellyGrad.addColorStop(0, 'rgba(0,0,0,0)');
+        bellyGrad.addColorStop(1, bellyColor);
+        // First fill belly solid below the transition zone
         ctx.fillStyle = bellyColor;
-        ctx.fillRect(0, Math.floor(h * 0.67), w, Math.ceil(h * 0.33));
+        ctx.fillRect(0, transitionBot, w, h - transitionBot);
+        // Then blend with gradient
+        ctx.fillStyle = bellyGrad;
+        ctx.fillRect(0, transitionTop, w, transitionBot - transitionTop);
 
-        // Blend line between dorsum and belly
-        var grad = ctx.createLinearGradient(0, h * 0.60, 0, h * 0.72);
-        grad.addColorStop(0, bodyColor);
-        grad.addColorStop(1, bellyColor);
-        ctx.fillStyle = grad;
-        ctx.fillRect(0, Math.floor(h * 0.60), w, Math.ceil(h * 0.12));
-
-        // Species-specific patterns
+        // ---- Species-specific patterns ----
         var pattern = sp.spotPattern;
 
         if (pattern === 'bordered-rows') {
-            // NOVI: red-bordered spots in two dorsolateral rows
+            // NOVI: red-bordered spots with radial gradient and anti-aliased borders
             var spotColor = sp.color.spots || '#cc2200';
             var borderColor = sp.color.spotBorder || '#111111';
             var spotCount = Math.floor(randRange(6, 10));
+            var spotRgb = adjustColorRgb(spotColor, hueOff, satOff);
+
             for (var row = 0; row < 2; row++) {
                 var rowY = h * (0.28 + row * 0.18);
                 for (var i = 0; i < spotCount; i++) {
                     var sx = w * 0.08 + (w * 0.84) * (i / (spotCount - 1)) + randRange(-8, 8);
                     var sy = rowY + randRange(-6, 6);
                     var sr = randRange(6, 12);
+
+                    // Anti-aliased black border (2px wide)
                     ctx.beginPath();
                     ctx.arc(sx, sy, sr + 2, 0, Math.PI * 2);
                     ctx.fillStyle = borderColor;
                     ctx.fill();
+
+                    // Radial gradient fill -- lighter center fading to the red fill
+                    var spotGrad = ctx.createRadialGradient(sx, sy, 0, sx, sy, sr);
+                    var centerR = clamp(spotRgb.r + 40, 0, 255);
+                    var centerG = clamp(spotRgb.g + 20, 0, 255);
+                    var centerB = clamp(spotRgb.b + 10, 0, 255);
+                    spotGrad.addColorStop(0, 'rgb(' + centerR + ',' + centerG + ',' + centerB + ')');
+                    spotGrad.addColorStop(1, 'rgb(' + spotRgb.r + ',' + spotRgb.g + ',' + spotRgb.b + ')');
+
                     ctx.beginPath();
                     ctx.arc(sx, sy, sr, 0, Math.PI * 2);
-                    ctx.fillStyle = adjustColor(spotColor, hueOff, satOff);
+                    ctx.fillStyle = spotGrad;
                     ctx.fill();
                 }
             }
 
         } else if (pattern === 'scattered') {
-            // PSRU: random black dots, varied sizes
+            // PSRU: irregular elliptical spots, some overlapping for larger animals
             var dotColor = sp.color.spots || '#222222';
-            var dotCount = Math.floor(randRange(15, 25));
+            var svl = traits.svl || sp.svl.mean;
+            // More spots and more overlap for older/larger animals
+            var dotCount = Math.floor(randRange(15, 25) + (svl > 60 ? 8 : 0));
+
             for (var i = 0; i < dotCount; i++) {
                 var dx = randRange(w * 0.05, w * 0.95);
                 var dy = randRange(h * 0.08, h * 0.60);
-                var dr = randRange(3, 8);
+                // Randomized ellipses instead of circles
+                var drx = randRange(3, 9);
+                var dry = randRange(2, 7);
+                var angle = randRange(-0.5, 0.5);
+
+                ctx.save();
+                ctx.translate(dx, dy);
+                ctx.rotate(angle);
                 ctx.beginPath();
-                ctx.arc(dx, dy, dr, 0, Math.PI * 2);
+                ctx.ellipse(0, 0, drx, dry, 0, 0, Math.PI * 2);
                 ctx.fillStyle = dotColor;
                 ctx.fill();
+                ctx.restore();
             }
 
         } else if (pattern === 'flecked') {
-            // PLGL: dense white/silver flecks
-            var fleckColor = sp.color.flecks || '#c0c0c0';
+            // PLGL: dense flecks varying from white to silver-gold
+            var fleckColors = ['#ffffff', '#e0e0e0', '#c0c0c0', '#d4c480', '#c8b870', '#b0b0b0'];
             var fleckCount = Math.floor(randRange(60, 100));
+
             for (var i = 0; i < fleckCount; i++) {
                 var fx = randRange(w * 0.03, w * 0.97);
                 var fy = randRange(h * 0.05, h * 0.62);
                 var fr = randRange(1, 3);
+                var fleckColor = fleckColors[Math.floor(Math.random() * fleckColors.length)];
+
                 ctx.beginPath();
                 ctx.arc(fx, fy, fr, 0, Math.PI * 2);
                 ctx.fillStyle = fleckColor;
@@ -448,13 +549,13 @@ export class SalamanderRenderer {
 
         } else if (pattern === 'faint-mottled') {
             // GYPO: subtle darker mottling
-            var mottleCount = Math.floor(randRange(20, 35));
-            for (var i = 0; i < mottleCount; i++) {
-                var mx = randRange(w * 0.05, w * 0.95);
-                var my = randRange(h * 0.10, h * 0.60);
-                var mr = randRange(8, 18);
+            var mottleCount2 = Math.floor(randRange(20, 35));
+            for (var i = 0; i < mottleCount2; i++) {
+                var mx2 = randRange(w * 0.05, w * 0.95);
+                var my2 = randRange(h * 0.10, h * 0.60);
+                var mr2 = randRange(8, 18);
                 ctx.beginPath();
-                ctx.arc(mx, my, mr, 0, Math.PI * 2);
+                ctx.arc(mx2, my2, mr2, 0, Math.PI * 2);
                 ctx.fillStyle = 'rgba(80, 50, 40, 0.15)';
                 ctx.fill();
             }
@@ -486,6 +587,16 @@ export class SalamanderRenderer {
             }
         }
 
+        // ---- Wet skin highlight band across the upper third ----
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.08)';
+        var highlightGrad = ctx.createLinearGradient(0, h * 0.12, 0, h * 0.38);
+        highlightGrad.addColorStop(0, 'rgba(255, 255, 255, 0)');
+        highlightGrad.addColorStop(0.3, 'rgba(255, 255, 255, 0.08)');
+        highlightGrad.addColorStop(0.7, 'rgba(255, 255, 255, 0.08)');
+        highlightGrad.addColorStop(1, 'rgba(255, 255, 255, 0)');
+        ctx.fillStyle = highlightGrad;
+        ctx.fillRect(0, Math.floor(h * 0.12), w, Math.ceil(h * 0.26));
+
         return canvas;
     }
 
@@ -505,16 +616,16 @@ export class SalamanderRenderer {
         ctx.fillRect(0, 0, w, h);
 
         if (sp.skinTexture === 'granular') {
-            // NOVI: dense small bumps for granular skin
-            var bumpCount = Math.floor(randRange(300, 500));
+            // NOVI: dense small bumps for granular skin (300+ stipples)
+            var bumpCount = Math.floor(randRange(350, 550));
             for (var i = 0; i < bumpCount; i++) {
                 var bx = randRange(0, w);
                 var by = randRange(0, h * 0.67);
                 var br = randRange(1, 3);
-                // Perturb the normal slightly by varying the blue channel
-                var blueVal = Math.floor(randRange(220, 255));
-                var redVal = Math.floor(randRange(118, 138));
-                var greenVal = Math.floor(randRange(118, 138));
+                // Perturb the normal by varying RGB channels
+                var blueVal = Math.floor(randRange(215, 255));
+                var redVal = Math.floor(randRange(110, 145));
+                var greenVal = Math.floor(randRange(110, 145));
                 ctx.beginPath();
                 ctx.arc(bx, by, br, 0, Math.PI * 2);
                 ctx.fillStyle = 'rgb(' + redVal + ',' + greenVal + ',' + blueVal + ')';
@@ -522,7 +633,7 @@ export class SalamanderRenderer {
             }
 
         } else {
-            // Smooth species: add costal groove indentations as horizontal lines
+            // Smooth species: costal groove indentations
             var grooveCount = sp.costalGrooves || 0;
             if (grooveCount > 0) {
                 var trunkStart = w * 0.15;
@@ -537,6 +648,23 @@ export class SalamanderRenderer {
                     ctx.lineTo(gx, h * 0.60);
                     ctx.stroke();
                 }
+            }
+
+            // Subtle low-amplitude noise for smooth species --
+            // real skin has tiny irregularities even on "smooth" species
+            var noiseCount = Math.floor(randRange(120, 200));
+            for (var i = 0; i < noiseCount; i++) {
+                var nx = randRange(0, w);
+                var ny = randRange(0, h * 0.70);
+                var nr = randRange(1, 2);
+                // Very slight perturbation from neutral
+                var nRed = 128 + Math.floor(randRange(-4, 4));
+                var nGreen = 128 + Math.floor(randRange(-4, 4));
+                var nBlue = 255 + Math.floor(randRange(-4, 0));
+                ctx.beginPath();
+                ctx.arc(nx, ny, nr, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgb(' + nRed + ',' + nGreen + ',' + nBlue + ')';
+                ctx.fill();
             }
         }
 
@@ -607,7 +735,7 @@ export class SalamanderRenderer {
     // Material
     // -----------------------------------------------------------------------
 
-    createMaterial(albedoCanvas, normalCanvas, speciesConfig) {
+    createMaterial(albedoCanvas, normalCanvas, speciesConfig, speciesKey) {
         var albedoTex = new THREE.CanvasTexture(albedoCanvas);
         albedoTex.colorSpace = THREE.SRGBColorSpace;
 
@@ -620,11 +748,22 @@ export class SalamanderRenderer {
         if (isGranular) roughness = 0.85;
         if (isSlimy) roughness = 0.2;
 
-        var mat = new THREE.MeshStandardMaterial({
+        // Normal map strength: stronger for granular skin, subtle for smooth
+        var normalStrength = isGranular
+            ? new THREE.Vector2(1.5, 1.5)
+            : new THREE.Vector2(0.5, 0.5);
+
+        // Per-species clearcoat from lookup table
+        var cc = CLEARCOAT[speciesKey] || { clearcoat: 0.3, clearcoatRoughness: 0.2 };
+
+        var mat = new THREE.MeshPhysicalMaterial({
             map: albedoTex,
             normalMap: normalTex,
+            normalScale: normalStrength,
             roughness: roughness,
             metalness: 0,
+            clearcoat: cc.clearcoat,
+            clearcoatRoughness: cc.clearcoatRoughness,
             side: THREE.DoubleSide
         });
 
